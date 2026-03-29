@@ -100,7 +100,7 @@ public sealed class HiveLeaderSystem : EntitySystem
         {
             if (leaders.Count == 0)
             {
-                msg = "There are no Xenonid leaders. Overwatch a Xenonid to make it a leader.";
+                msg = Loc.GetString("rmc-hive-leader-no-leaders");
                 _popup.PopupClient(msg, ent, ent, PopupType.MediumCaution);
                 return;
             }
@@ -120,7 +120,7 @@ public sealed class HiveLeaderSystem : EntitySystem
 
         if (!HasComp<HiveLeaderComponent>(watching) && leaders.Count >= max)
         {
-            msg = $"You can't have more than {max} promoted leaders.";
+            msg = Loc.GetString("rmc-hive-leader-max-leaders", ("max", max));
             _popup.PopupClient(msg, watching, ent, PopupType.MediumCaution);
             return;
         }
@@ -131,10 +131,10 @@ public sealed class HiveLeaderSystem : EntitySystem
             RemComp<RMCTrackableComponent>(watching);
             ent.Comp.Leaders.Remove(watching);
 
-            msg = $"You've demoted {Name(watching)} from Hive Leader.";
+            msg = Loc.GetString("rmc-hive-leader-demoted-self", ("name", Name(watching)));
             _popup.PopupClient(msg, watching, ent, PopupType.MediumCaution);
 
-            msg = $"{Name(ent)} has demoted you from Hive Leader. Your leadership rights and abilities have waned.";
+            msg = Loc.GetString("rmc-hive-leader-demoted-by", ("name", Name(ent)));
             _popup.PopupEntity(msg, watching, watching, PopupType.MediumCaution);
             _rmcChat.ChatMessageToOne(msg, watching);
             var evn = new HiveLeaderStatusChangedEvent(false);
@@ -150,9 +150,9 @@ public sealed class HiveLeaderSystem : EntitySystem
         ent.Comp.Leaders.Add(watching);
         Dirty(ent);
 
-        msg = $"You've selected {Name(watching)} as a Hive Leader.";
+        msg = Loc.GetString("rmc-hive-leader-selected-self", ("name", Name(watching)));
         _popup.PopupClient(msg, watching, ent, PopupType.Medium);
-        msg = $"{Name(ent)} has selected you as a Hive Leader. The other Xenonids must listen to you. You will also act as a beacon for the Queen's pheromones.";
+        msg = Loc.GetString("rmc-hive-leader-selected-by", ("name", Name(ent)));
         _popup.PopupClient(msg, watching, watching, PopupType.Medium);
         _rmcChat.ChatMessageToOne(msg, watching);
     }

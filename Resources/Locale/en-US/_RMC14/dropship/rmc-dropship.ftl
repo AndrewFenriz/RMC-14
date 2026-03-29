@@ -157,3 +157,13 @@ rmc-dropship-weapons-offset-up = ↑
 rmc-dropship-weapons-offset-left = ←
 rmc-dropship-weapons-offset-right = →
 rmc-dropship-weapons-offset-down = ↓
+
+rmc-dropship-utility-medevac = Medevac
+rmc-dropship-utility-fulton = Fulton
+rmc-dropship-utility-pds = PDS
+
+rmc-dropship-electronic-spotlight = Spotlight
+
+rmc-dropship-weapons-mode-none = NONE
+rmc-dropship-weapons-mode-weapon = WEAPON
+rmc-dropship-weapons-target-none = NONE

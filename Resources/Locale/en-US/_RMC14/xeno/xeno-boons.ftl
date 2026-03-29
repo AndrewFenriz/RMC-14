@@ -88,3 +88,9 @@ rmc-boon-tower-entangled = The { $tower } is entangled in resin. Impossible to i
 
 rmc-boon-king-vote-title = Choose a sister
 rmc-boon-king-vote-description = Vote for a sister you wish to become the King.
+
+rmc-boon-fire-resistance = The Queen has imbued us with flame-resistant chitin for 5 minutes.
+rmc-boon-larva-surge = The Queen has awakened 5 extra burrowed larva to join the hive!
+rmc-boon-pylon-lost = We have lost our control of the tall's communication relay at {$area}.
+rmc-boon-pylon-harnessed = We have harnessed the tall's communication relay at {$area}.\n\nWe will now grow royal resin from this pylon. Hold it!
+rmc-boon-king-ready = The hive is now ready to begin hatching His Grace, the King, if we gain control of both tall hivemind towers.

@@ -356,7 +356,10 @@ public sealed class SkillsSystem : EntitySystem
             if (!skillsDict.TryAdd(name, id))
             {
                 var old = skillsDict.GetValueOrDefault(name).Id;
-                var msg = $"Duplicate skill name found: {name}, old: {old}, new: {id}";
+                var msg = Loc.GetString("rmc-skills-error-duplicate", 
+                    ("name", name), 
+                    ("old", old), 
+                    ("id", id));
 
                 Log.Error(msg);
                 DebugTools.Assert(msg);
@@ -385,7 +388,7 @@ public sealed class SkillsSystem : EntitySystem
     {
         if (skill == default)
         {
-            var msg = $"Empty skill {skill} passed to {nameof(GetSkill)}!";
+            var msg = Loc.GetString("rmc-skills-error-empty", ("skill", skill), ("method", nameof(GetSkill)));
             Log.Error(msg);
             DebugTools.Assert(msg);
         }
@@ -550,7 +553,7 @@ public sealed class SkillsSystem : EntitySystem
     {
         if (skill == default)
         {
-            var msg = $"Empty skill {skill} passed to {nameof(SetSkill)}!";
+            var msg = Loc.GetString("rmc-skills-error-empty", ("skill", skill), ("method", nameof(SetSkill)));
             Log.Error(msg);
             DebugTools.Assert(msg);
             return;

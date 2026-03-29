@@ -408,3 +408,10 @@ rmc-doomed-fail = It's not working...
 # Destroy
 rmc-destroy-cant-reach = We don't have a clear path to that location!
 rmc-destroy-cant-area = We can't leap to that area!
+
+# Heal
+rmc-xeno-heal-channel = We channel our plasma to heal our sisters' wounds around this area.
+
+# Evolution
+rmc-xeno-queen-ovipositor-ready = Enough time has passed, we require the Queen in oviposition for evolution.
+

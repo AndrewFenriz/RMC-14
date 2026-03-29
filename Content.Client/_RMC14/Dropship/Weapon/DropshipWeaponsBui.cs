@@ -150,9 +150,9 @@ public sealed class DropshipWeaponsBui : RMCPopOutBui<DropshipWeaponsWindow>
         {
             var weapon = EntMan.GetEntity(compScreen.Weapon);
             return Loc.GetString("rmc-dropship-weapons-target-strike",
-                ("mode", compScreen.Weapon == null ? "NONE" : "WEAPON"),
+                ("mode", compScreen.Weapon == null ? Loc.GetString("rmc-dropship-weapons-mode-none") : Loc.GetString("rmc-dropship-weapons-mode-weapon")),
                 ("weapon", weapon == null ? "" : weapon),
-                ("target", terminal.Target == null ? "NONE" : terminal.Target.Value),
+                ("target", terminal.Target == null ? Loc.GetString("rmc-dropship-weapons-target-none") : terminal.Target.Value),
                 ("xOffset", terminal.Offset.X),
                 ("yOffset", terminal.Offset.Y));
         }
@@ -642,17 +642,17 @@ public sealed class DropshipWeaponsBui : RMCPopOutBui<DropshipWeaponsWindow>
                 var utilityMount = utilityContainer.ContainedEntities[0];
                 if (EntMan.HasComponent<MedevacComponent>(utilityMount))
                 {
-                    text = "Medevac";
+                    text = Loc.GetString("rmc-dropship-utility-medevac");
                     msg = new DropshipTerminalWeaponsChooseMedevacMsg(first);
                 }
                 else if (EntMan.HasComponent<RMCFultonComponent>(utilityMount))
                 {
-                    text = "Fulton";
+                    text = Loc.GetString("rmc-dropship-utility-fulton");
                     msg = new DropshipTerminalWeaponsChooseFultonMsg(first);
                 }
                 else if (EntMan.HasComponent<RMCParaDropComponent>(utilityMount))
                 {
-                    text = "PDS";
+                    text = Loc.GetString("rmc-dropship-utility-pds");
                     msg = new DropshipTerminalWeaponsChooseParaDropMsg(first);
                 }
                 else if (EntMan.TryGetComponent(utilityMount, out RMCEquipmentDeployerComponent? deployer))
@@ -683,7 +683,7 @@ public sealed class DropshipWeaponsBui : RMCPopOutBui<DropshipWeaponsWindow>
                 var electronicSystemMount = electronicSystemContainer.ContainedEntities[0];
                 if (EntMan.HasComponent<DropshipSpotlightComponent>(electronicSystemMount))
                 {
-                    text = "Spotlight";
+                    text = Loc.GetString("rmc-dropship-electronic-spotlight");
                     msg = new DropshipTerminalWeaponsChooseSpotlightMsg(first, EntMan.GetNetEntity(electronicSystemMount));
                 }
                 else

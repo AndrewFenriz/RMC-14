@@ -30,3 +30,4 @@ rmc-visor-screwdriver-instruction = Use a [color=cyan]screwdriver[/color] on thi
 rmc-visors-remove-success = You remove the inserted visors.
 rmc-visors-remove-none = There are no visors left to take out!
 rmc-visors-sockets-full = { $target } has used all of its visor attachment sockets.
+rmc-visor-connect = You connect the {$visor} to {$cycleable}.

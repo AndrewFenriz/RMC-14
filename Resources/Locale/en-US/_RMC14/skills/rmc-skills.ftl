@@ -6,3 +6,5 @@ rmc-skills = Skills
 rmc-skills-examine = Examine {POSS-ADJ($target)} skills
 rmc-skills-examine-none = {CAPITALIZE(SUBJECT($target))} has no skills.
 rmc-skills-examine-skill = - [color=yellow]{$name}[/color] [color=lightblue]{$level}[/color]
+rmc-skills-error-duplicate = Duplicate skill name found: {$name}, old: {$old}, new: {$id}
+rmc-skills-error-empty = Empty skill {$skill} passed to {$method}!

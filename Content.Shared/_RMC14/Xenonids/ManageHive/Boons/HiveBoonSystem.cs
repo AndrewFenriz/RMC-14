@@ -158,13 +158,13 @@ public sealed class HiveBoonSystem : EntitySystem
     private void OnActivateFireResistance(HiveBoonActivateFireResistanceEvent ev)
     {
         EnsureComp<HiveBoonFireImmunityComponent>(ev.Boon);
-        _xenoAnnounce.AnnounceSameHiveDefaultSound(ev.Boon, "The Queen has imbued us with flame-resistant chitin for 5 minutes.");
+        _xenoAnnounce.AnnounceSameHiveDefaultSound(ev.Boon, Loc.GetString("rmc-boon-fire-resistance"));
     }
 
     private void OnActivateLarvaSurge(HiveBoonActivateLarvaSurgeEvent ev)
     {
         _hive.IncreaseBurrowedLarva(ev.Hive, 5);
-        _xenoAnnounce.AnnounceSameHiveDefaultSound(ev.Boon, "The Queen has awakened 5 extra burrowed larva to join the hive!");
+        _xenoAnnounce.AnnounceSameHiveDefaultSound(ev.Boon, Loc.GetString("rmc-boon-larva-surge"));
     }
 
     private void OnActivateKing(HiveBoonActivateKingEvent ev)
@@ -255,7 +255,7 @@ public sealed class HiveBoonSystem : EntitySystem
 
         var area = _area.GetAreaName(ent);
         _marineAnnounce.AnnounceToMarines(Loc.GetString("rmc-boon-pylon-destroyed-announcement-marine", ("area", area)));
-        _xenoAnnounce.AnnounceSameHiveDefaultSound(ent.Owner, $"We have lost our control of the tall's communication relay at {area}.");
+        _xenoAnnounce.AnnounceSameHiveDefaultSound(ent.Owner, Loc.GetString("rmc-boon-pylon-lost", ("area", area)));
 
         if (ent.Comp.Tower is { } tower)
         {
@@ -474,7 +474,7 @@ public sealed class HiveBoonSystem : EntitySystem
 
             var areaName = _area.GetAreaName(tower);
             _marineAnnounce.AnnounceToMarines(Loc.GetString("rmc-boon-pylon-announcement-marine", ("area", areaName)));
-            _xenoAnnounce.AnnounceSameHiveDefaultSound(newWeedSource, $"We have harnessed the tall's communication relay at {areaName}.\n\nWe will now grow royal resin from this pylon. Hold it!");
+            _xenoAnnounce.AnnounceSameHiveDefaultSound(newWeedSource, Loc.GetString("rmc-boon-pylon-harnessed", ("area", areaName)));
         }
 
         if (!TryComp(newWeedSource, out XenoWeedsComponent? newWeedSourceComp) ||
@@ -860,7 +860,7 @@ public sealed class HiveBoonSystem : EntitySystem
                 Dirty(boons);
 
                 var sound = new BioscanComponent().XenoSound;
-                _xenoAnnounce.AnnounceToHive(default, uid, "The hive is now ready to begin hatching His Grace, the King, if we gain control of both tall hivemind towers.", sound);
+                _xenoAnnounce.AnnounceToHive(default, uid, Loc.GetString("rmc-boon-king-ready"), sound);
             }
         }
         catch (Exception e)

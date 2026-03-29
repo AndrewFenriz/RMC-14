@@ -31,3 +31,5 @@ cm-distress-signal-jellies = Royal Jelly Awards:
 rmc-distress-signal-got-medal = {$receiver} is awarded the {$award}: '{$awardDescription}' by {$giver}
 
 rmc-distress-signal-got-jelly = {$receiver} is awarded the {$award}: '{$awardDescription}' by {$giver}
+
+rmc-distress-signal-error-min-xenos = Can't start distress signal. Requires at least {$min} xeno player but we have {$count}.

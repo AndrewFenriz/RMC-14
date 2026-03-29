@@ -1296,7 +1296,9 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
             if (xenoCandidates >= _xenosMinimum)
                 continue;
 
-            var msg = $"Can't start distress signal. Requires at least {_xenosMinimum} xeno player but we have {xenoCandidates}.";
+            var msg = Loc.GetString("rmc-distress-signal-error-min-xenos", 
+                ("min", _xenosMinimum), 
+                ("count", xenoCandidates));
             ChatManager.SendAdminAnnouncement(msg);
             ChatManager.DispatchServerAnnouncement(msg);
             ev.Cancel();
