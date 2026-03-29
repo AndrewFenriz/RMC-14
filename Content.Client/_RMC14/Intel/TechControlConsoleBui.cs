@@ -87,7 +87,7 @@ public sealed class TechControlConsoleBui : BoundUserInterface
                 {
                     OpenOptionWindow(option, tier, optionIndex, console.Tree.Points, console.Tree.Tier);
                 };
-                optionButton.ToolTip = option.Name;
+                optionButton.ToolTip = Loc.GetString(option.Name);
                 optionButton.TooltipDelay = 0.1f;
 
                 optionContainer.AddChild(new Control { HorizontalExpand = true });
@@ -110,10 +110,10 @@ public sealed class TechControlConsoleBui : BoundUserInterface
         _optionWindow = new TechControlConsoleOptionWindow();
         _optionWindow.OpenCentered();
         _optionWindow.OnClose += () => _optionWindow = null;
-        _optionWindow.Title = option.Name;
+        _optionWindow.Title = Loc.GetString(option.Name);
         _optionWindow.CurrentPointsLabel.Text = Loc.GetString("rmc-ui-tech-points-value", ("value", points.Double().ToString("F1")));
-        _optionWindow.NameLabel.Text = option.Name;
-        _optionWindow.DescriptionLabel.Text = option.Description;
+        _optionWindow.NameLabel.Text = Loc.GetString(option.Name);
+        _optionWindow.DescriptionLabel.Text = Loc.GetString(option.Description);
         _optionWindow.CostLabel.Text = $"{option.CurrentCost}";
 
         _optionWindow.Statistics.DisposeAllChildren();
