@@ -2,7 +2,6 @@ using System.Numerics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Localization;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client._RMC14.Marines.Mutiny;
@@ -33,13 +32,13 @@ public sealed class MutineerInviteWindow : DefaultWindow
 
         layout.AddChild(new RichTextLabel()
         {
-            Text = "You are being asked to join a mutiny.",
+            Text = Loc.GetString("rmc-mutineer-invite-description"),
             VerticalExpand =  true,
             VerticalAlignment = VAlignment.Center,
         });
         layout.AddChild(new RichTextLabel()
         {
-            Text = "Read the Mutinies and Riots guidelines (Core Rules -> \"Mutinies, Riots\").",
+            Text = Loc.GetString("rmc-mutineer-invite-guidelines"),
             VerticalExpand =  true,
             VerticalAlignment = VAlignment.Center,
         });

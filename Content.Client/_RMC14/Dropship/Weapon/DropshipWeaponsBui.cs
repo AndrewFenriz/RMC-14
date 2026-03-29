@@ -54,19 +54,19 @@ public sealed class DropshipWeaponsBui : RMCPopOutBui<DropshipWeaponsWindow>
         base.Open();
         Window = this.CreatePopOutableWindow<DropshipWeaponsWindow>();
 
-        Window.OffsetUpButton.Text = "^";
+        Window.OffsetUpButton.Text = Loc.GetString("rmc-dropship-weapons-offset-up");
         Window.OffsetUpButton.OnPressed += _ =>
             SendPredictedMessage(new DropshipTerminalWeaponsAdjustOffsetMsg(Direction.North));
 
-        Window.OffsetLeftButton.Text = "<";
+        Window.OffsetLeftButton.Text = Loc.GetString("rmc-dropship-weapons-offset-left");
         Window.OffsetLeftButton.OnPressed += _ =>
             SendPredictedMessage(new DropshipTerminalWeaponsAdjustOffsetMsg(Direction.West));
 
-        Window.OffsetRightButton.Text = ">";
+        Window.OffsetRightButton.Text = Loc.GetString("rmc-dropship-weapons-offset-right");
         Window.OffsetRightButton.OnPressed += _ =>
             SendPredictedMessage(new DropshipTerminalWeaponsAdjustOffsetMsg(Direction.East));
 
-        Window.OffsetDownButton.Text = "v";
+        Window.OffsetDownButton.Text = Loc.GetString("rmc-dropship-weapons-offset-down");
         Window.OffsetDownButton.OnPressed += _ =>
             SendPredictedMessage(new DropshipTerminalWeaponsAdjustOffsetMsg(Direction.South));
 

@@ -106,3 +106,6 @@ rmc-overwatch-console-objectives = Your squad objectives:
     { $objectives }
 
 rmc-overwatch-console-busy-optics = You're too busy peering through optics.
+
+rmc-overwatch-console-hide-button = -
+rmc-overwatch-console-promote-button = ↑

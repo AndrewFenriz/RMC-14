@@ -172,7 +172,7 @@ public sealed class RMCGlobalAdminEui : BaseEui
                 var group = new ButtonGroup();
                 var friendly = new Button()
                 {
-                    Text = "+",
+                    Text = Loc.GetString("rmc-global-admin-faction-friendly"),
                     ToggleMode = true,
                     Pressed = value.Friendly.Contains(right),
                     Group = group,
@@ -185,7 +185,7 @@ public sealed class RMCGlobalAdminEui : BaseEui
 
                 var neutral = new Button()
                 {
-                    Text = "=",
+                    Text = Loc.GetString("rmc-global-admin-faction-neutral"),
                     ToggleMode = true,
                     Pressed = !(value.Friendly.Contains(right) || value.Hostile.Contains(right)),
                     Group = group,
@@ -198,7 +198,7 @@ public sealed class RMCGlobalAdminEui : BaseEui
 
                 var hostile = new Button()
                 {
-                    Text = "-",
+                    Text = Loc.GetString("rmc-global-admin-faction-hostile"),
                     ToggleMode = true,
                     Pressed = value.Hostile.Contains(right),
                     Group = group,

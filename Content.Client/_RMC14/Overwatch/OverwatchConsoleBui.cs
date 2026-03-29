@@ -428,7 +428,7 @@ public sealed class OverwatchConsoleBui : RMCPopOutBui<OverwatchConsoleWindow>
                         MaxHeight = 25,
                         VerticalAlignment = VAlignment.Top,
                         StyleClasses = { "OpenBoth" },
-                        Text = "-",
+                        Text = Loc.GetString("rmc-overwatch-console-hide-button"),
                         ModulateSelfOverride = Color.FromHex("#BB1F1D"),
                         ToolTip = Loc.GetString("rmc-overwatch-console-hide-marine"),
                     };
@@ -439,7 +439,7 @@ public sealed class OverwatchConsoleBui : RMCPopOutBui<OverwatchConsoleWindow>
                         MaxHeight = 25,
                         VerticalAlignment = VAlignment.Top,
                         StyleClasses = { "OpenBoth" },
-                        Text = "^",
+                        Text = Loc.GetString("rmc-overwatch-console-promote-button"),
                         ModulateSelfOverride = Color.FromHex(GreenColor),
                         ToolTip = Loc.GetString("rmc-overwatch-console-promote-squad-leader"),
                     };

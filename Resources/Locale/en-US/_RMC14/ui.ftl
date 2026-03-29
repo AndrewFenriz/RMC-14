@@ -122,5 +122,6 @@ rmc-ui-button-no = No
 rmc-ui-button-confirm = Confirm
 rmc-ui-button-cancel = Cancel
 rmc-ui-button-help-sign = ?
+rmc-ui-button-pop-out = Pop Out
 rmc-ui-dialog-options-default-message = [bold]What do you wish to do?[/bold]
 rmc-ui-dialog-options-search-placeholder = Search...

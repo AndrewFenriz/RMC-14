@@ -10,6 +10,7 @@ rmc-squad-info-squad-leader-none = [bold]Squad Leader: None[/bold]
 rmc-squad-info-team-leader-name = [bold]TL: {$leader}[/bold]
 rmc-squad-info-team-leader-none = [bold]Team Lead: Unassigned[/bold]
 rmc-squad-info-promote-team-leader = Promote to Team Leader
+rmc-squad-info-promote-button = ↑
 rmc-squad-info-unassign-fireteam = Unassign from Fireteam
 rmc-squad-info-unassigned = [font size=16][bold]Unassigned[/bold][/font]
 rmc-squad-info-fireteam = [font size=16][bold]Fireteam {$fireteam}[/bold][/font]

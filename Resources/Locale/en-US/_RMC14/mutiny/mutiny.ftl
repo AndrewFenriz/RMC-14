@@ -17,3 +17,6 @@ mutineer-invite-deny = Decline
 
 rmc-mutiny-verb-make-mutineer = Make Mutineer
 rmc-mutiny-verb-make-leader = Make Mutineer Leader
+
+rmc-mutineer-invite-description = You are being asked to join a mutiny.
+rmc-mutineer-invite-guidelines = Read the Mutinies and Riots guidelines (Core Rules -> "Mutinies, Riots").

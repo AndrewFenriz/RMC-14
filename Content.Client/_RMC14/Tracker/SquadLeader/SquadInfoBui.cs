@@ -126,7 +126,7 @@ public sealed class SquadInfoBui : BoundUserInterface
                     MaxHeight = 25,
                     VerticalAlignment = Control.VAlignment.Center,
                     StyleClasses = { "OpenBoth" },
-                    Text = "^",
+                    Text = Loc.GetString("rmc-squad-info-promote-button"),
                     TextAlign = Label.AlignMode.Center,
                     ToolTip = Loc.GetString("rmc-squad-info-promote-team-leader"),
                     Margin = new Thickness(0, 0, 2, 0)

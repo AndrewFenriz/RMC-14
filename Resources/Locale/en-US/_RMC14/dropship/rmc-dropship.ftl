@@ -152,3 +152,8 @@ rmc-dropship-call-down = You call down one of the dropships to your location
 rmc-dropship-on-its-way = This dropship is now on its way.
 rmc-dropship-no-remote = This dropship does not have remote-control enabled.
 rmc-dropship-busy = This dropship is currently busy. Please try again later.
+
+rmc-dropship-weapons-offset-up = ↑
+rmc-dropship-weapons-offset-left = ←
+rmc-dropship-weapons-offset-right = →
+rmc-dropship-weapons-offset-down = ↓

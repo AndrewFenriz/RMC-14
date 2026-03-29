@@ -15,3 +15,7 @@ rmc-global-admin-xeno-tier = Tier {$tier}: {$amount} xenos
 rmc-global-admin-tactical-map-entry = Round {$round} by {$actor}
 rmc-global-admin-tactical-map-selected-none = Selected: None
 rmc-global-admin-tactical-map-selected = Selected: Round {$round} by {$actor}
+
+rmc-global-admin-faction-friendly = +
+rmc-global-admin-faction-neutral = =
+rmc-global-admin-faction-hostile = -
