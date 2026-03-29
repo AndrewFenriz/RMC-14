@@ -21,6 +21,8 @@ ui-tactical-map-lines-button = Lines
 
 ui-tactical-map-blip-size-label = Blip Size: {$size}x
 ui-tactical-map-line-width-label = Line Width: {$width}px
+ui-tactical-map-blip-size-label-default = Blip Size: 1.0x
+ui-tactical-map-line-width-label-default = Line Width: 2.0px
 
 ui-tactical-map-color-black = Black
 ui-tactical-map-color-red = Red

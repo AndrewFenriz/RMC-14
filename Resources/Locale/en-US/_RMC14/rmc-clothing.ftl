@@ -26,3 +26,7 @@ rmc-unstrippable = You can't take {THE($item)} off of {$owner}!
 
 rmc-no-visors-to-swap = There are no visors you can swap to!
 rmc-visor-down = {CAPITALIZE(THE($visor))} is flipped down.
+rmc-visor-screwdriver-instruction = Use a [color=cyan]screwdriver[/color] on this to take out any visors!
+rmc-visors-remove-success = You remove the inserted visors.
+rmc-visors-remove-none = There are no visors left to take out!
+rmc-visors-sockets-full = { $target } has used all of its visor attachment sockets.

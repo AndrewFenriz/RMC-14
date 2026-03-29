@@ -288,9 +288,9 @@ public sealed class VisorSystem : EntitySystem
         }
 
         if (anyRemoved)
-            _popup.PopupClient("You remove the inserted visors", args.Target, args.User);
+            _popup.PopupClient(Loc.GetString("rmc-visors-remove-success"), args.Target, args.User);
         else
-            _popup.PopupClient("There are no visors left to take out!", args.Target, args.User);
+            _popup.PopupClient(Loc.GetString("rmc-visors-remove-none"), args.Target, args.User);
 
         ent.Comp.CurrentVisor = null;
         Dirty(ent);
@@ -398,7 +398,7 @@ public sealed class VisorSystem : EntitySystem
             }
         }
 
-        msg = $"{Name(cycleable)} has used all of its visor attachment sockets.";
+        msg = Loc.GetString("rmc-visors-sockets-full", ("target", cycleable));
         _popup.PopupClient(msg, cycleable, user, PopupType.SmallCaution);
         return true;
     }

@@ -229,7 +229,7 @@ public abstract partial class SharedParaDropSystem : EntitySystem
             // Cancel the jump if there is no viable target
             if (randomCoordinates == null)
             {
-                _popup.PopupClient("Your harness got stuck and is preventing your from jumping", dropping, PopupType.SmallCaution);
+                _popup.PopupClient(Loc.GetString("rmc-paradrop-harness-stuck"), dropping, PopupType.SmallCaution);
                 return;
             }
 

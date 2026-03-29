@@ -77,11 +77,11 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
     {
         using (args.PushGroup(nameof(DetailedExaminableSolutionComponent)))
         {
-            args.PushText("It contains:");
+            args.PushText(Loc.GetString("rmc-chem-solution-contains"));
             if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution) ||
                 solution.Volume <= FixedPoint2.Zero)
             {
-                args.PushText("Nothing.");
+                args.PushText(Loc.GetString("rmc-chem-solution-nothing"));
             }
             else
             {
@@ -91,23 +91,27 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
                     if (_prototypes.TryIndexReagent(reagent.Reagent.Prototype, out ReagentPrototype? reagentProto))
                         name = reagentProto.LocalizedName;
 
-                    args.PushText($"{reagent.Quantity.Float():F2} units of {name}");
+                    args.PushText(Loc.GetString("rmc-chem-solution-reagent", 
+                        ("quantity", reagent.Quantity.Float()), 
+                        ("name", name)));
                 }
 
-                args.PushText($"Total volume: {solution.Volume} / {solution.MaxVolume}.");
+                args.PushText(Loc.GetString("rmc-chem-total-volume", 
+                    ("volume", solution.Volume), 
+                    ("max_volume", solution.MaxVolume)));
             }
 
             if (TryComp<RMCToggleableSolutionTransferComponent>(ent.Owner, out var transferComp))
             {
                 var directionText = transferComp.Direction switch
                 {
-                    SolutionTransferDirection.Input => "Transfer mode: Drawing",
-                    SolutionTransferDirection.Output => "Transfer mode: Dispensing",
+                    SolutionTransferDirection.Input => "rmc-chem-transfer-mode-draw",
+                    SolutionTransferDirection.Output => "rmc-chem-transfer-mode-dispense",
                     _ => string.Empty,
                 };
 
                 if (!string.IsNullOrEmpty(directionText))
-                    args.PushText(directionText);
+                    args.PushText(Loc.GetString(directionText));
             }
         }
     }
@@ -146,7 +150,7 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
                     refillable.Solution = ent.Comp.Solution;
                     ent.Comp.Direction = SolutionTransferDirection.Input;
                     Dirty(ent, refillable);
-                    _popup.PopupClient("Now drawing", ent, user, PopupType.Medium);
+                    _popup.PopupClient(Loc.GetString("rmc-chem-popup-drawing"), ent, user, PopupType.Medium);
                 }
                 else
                 {
@@ -155,7 +159,7 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
                     drainable.Solution = ent.Comp.Solution;
                     ent.Comp.Direction = SolutionTransferDirection.Output;
                     Dirty(ent, drainable);
-                    _popup.PopupClient("Now dispensing", ent, user, PopupType.Medium);
+                    _popup.PopupClient(Loc.GetString("rmc-chem-popup-dispensing"), ent, user, PopupType.Medium);
                 }
             },
         });

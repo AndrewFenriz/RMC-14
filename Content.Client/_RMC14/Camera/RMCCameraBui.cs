@@ -29,8 +29,8 @@ public sealed class RMCCameraBui : RMCPopOutBui<RMCCameraWindow>
         base.Open();
         Window = this.CreatePopOutableWindow<RMCCameraWindow>();
         Window.SearchBar.OnTextChanged += _ => RefreshSearch();
-        Window.PreviousCameraButton.Text = "<";
-        Window.NextCameraButton.Text = ">";
+        Window.PreviousCameraButton.Text = Loc.GetString("rmc-camera-previous");
+        Window.NextCameraButton.Text = Loc.GetString("rmc-camera-next");
         Window.PreviousCameraButton.OnPressed += _ => SendPredictedMessage(new RMCCameraPreviousBuiMsg());
         Window.NextCameraButton.OnPressed += _ => SendPredictedMessage(new RMCCameraNextBuiMsg());
 

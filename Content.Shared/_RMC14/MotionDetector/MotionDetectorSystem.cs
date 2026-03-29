@@ -138,13 +138,14 @@ public sealed class MotionDetectorSystem : EntitySystem
         var user = args.User;
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = ent.Comp.Short ? "Change to long range mode" : "Change to short range mode",
+            Text = ent.Comp.Short ? Loc.GetString("rmc-detector-switch-long") : Loc.GetString("rmc--detector-switch-short"),
             Act = () =>
             {
                 ent.Comp.Short = !ent.Comp.Short;
                 Dirty(ent);
                 _audio.PlayPredicted(ent.Comp.ToggleSound, ent, user);
-                _popup.PopupClient($"You change the {Name(ent)} to {(ent.Comp.Short ? "short" : "long")} range mode", ent, user);
+                var mode = ent.Comp.Short ? Loc.GetString("rmc-detector-mode-short") : Loc.GetString("rmc-detector-mode-long");
+                _popup.PopupClient(Loc.GetString("rmc-motion-detector-mode-changed", ("detector", ent.Owner), ("mode", mode)), ent, user);
             },
         });
     }
@@ -169,8 +170,8 @@ public sealed class MotionDetectorSystem : EntitySystem
     {
         using (args.PushGroup(nameof(MotionDetectorComponent)))
         {
-            var mode = ent.Comp.Short ? "short" : "long";
-            args.PushMarkup($"The motion detector is in [color=cyan]{mode}[/color] scanning mode.");
+            var mode = ent.Comp.Short ? Loc.GetString("rmc-detector-mode-short") : Loc.GetString("rmc-detector-mode-long");
+            args.PushMarkup(Loc.GetString("rmc-motion-detector-examined", ("mode", mode)));
         }
     }
 

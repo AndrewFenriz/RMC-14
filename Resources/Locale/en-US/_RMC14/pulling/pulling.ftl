@@ -15,3 +15,7 @@ rmc-pull-break-start-self = You struggle to break free of {$puller}'s grip!
 rmc-pull-break-start-others = {$pulled} struggles to break free of {$puller}'s grip!
 rmc-pull-break-finish-self = You break free of {$puller}'s grip!
 rmc-pull-break-finish-others = {$pulled} has broken free of {$puller}'s grip!
+
+rmc-fireman-carry-no-skill = You aren't trained to carry people!
+rmc-fireman-carry-need-aggressive = You need to grab them aggressively first!
+rmc-fireman-carry-start = You start loading { $target } onto your back.

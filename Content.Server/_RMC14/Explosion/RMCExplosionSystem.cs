@@ -109,7 +109,9 @@ public sealed class RMCExplosionSystem : SharedRMCExplosionSystem
     {
         using (args.PushGroup(nameof(RandomTimerTriggerComponent)))
         {
-            args.PushMarkup($"[color=cyan]This will have a random timer between {ent.Comp.Min} and {ent.Comp.Max} seconds on use![/color]");
+            args.PushMarkup(Loc.GetString("rmc-explosive-random-timer-examined", 
+                ("min", ent.Comp.Min), 
+                ("max", ent.Comp.Max)));
         }
     }
 

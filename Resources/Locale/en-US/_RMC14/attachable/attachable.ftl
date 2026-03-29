@@ -1,3 +1,5 @@
+rmc-attachable-cannot-shoot = You can't shoot this right now!
+
 rmc-attachable-holder-strip-ui-title = strip attachables
 rmc-attachable-holder-strip-ui-empty-slot = nothing
 

@@ -90,7 +90,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
     {
         if (_mobState.IsDead(target) && _unrevivable.IsUnrevivable(target))
         {
-            var cancelledMessage = $"You decide to not Execute {Name(target)}, as they are already far beyond revival.";
+            var cancelledMessage = Loc.GetString("rmc-execute-cancel-dead", ("target", target));
             _popup.PopupClient(cancelledMessage, user, PopupType.MediumCaution);
             return;
         }
@@ -105,8 +105,8 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
             handHeldItem);
         _doAfter.TryStartDoAfter(doAfterArgs);
 
-        var selfMsg = Loc.GetString("rmc-execute-start-self", ("target", Name(target)), ("gun", Name(handHeldItem)));
-        var othersMsg = Loc.GetString("rmc-execute-start-others", ("user", Name(user)), ("target", Name(target)), ("gun", Name(handHeldItem)));
+        var selfMsg = Loc.GetString("rmc-execute-start-self", ("target", target), ("gun", handHeldItem));
+        var othersMsg = Loc.GetString("rmc-execute-start-others", ("user", user), ("target", target), ("gun", handHeldItem));
         _popup.PopupPredicted(selfMsg, othersMsg, user, user, PopupType.LargeCaution);
     }
 
@@ -120,7 +120,7 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
             _admin.Add(LogType.RMCExecution,
                 LogImpact.High,
                 $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} was cancelled.");
-            var cancelledMessage = $"You decide to not Execute {Name(target)}.";
+            var cancelledMessage = Loc.GetString("rmc-execute-cancel-self", ("target", target));
             _popup.PopupClient(cancelledMessage, user, PopupType.MediumCaution);
             return;
         }
@@ -180,10 +180,10 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
 
         _audio.PlayPredicted(gun.SoundGunshotModified, args.Used.Value, user);
 
-        var popupMessage = $"{Name(target)} WAS EXECUTED BY {Name(user)}!";
+        var popupMessage = Loc.GetString("rmc-execute-final-popup", ("victim", target), ("user", user));
         _popup.PopupPredicted(popupMessage, target, user, PopupType.LargeCaution);
 
-        var chatMsg = $"[bold][font size=24][color=red]\n{Name(target)} WAS EXECUTED BY {Name(user)}!\n[/color][/font][/bold]";
+        var chatMsg = Loc.GetString("rmc-execute-final-chat", ("victim", target), ("user", user));
         var coordinates = _transform.GetMapCoordinates(target);
         var players = Filter.Empty().AddInRange(coordinates, 12, _player, EntityManager);
 

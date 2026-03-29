@@ -109,7 +109,7 @@ public sealed class XenoPlasmaSystem : EntitySystem
 
         if (otherXeno.Plasma == otherXeno.MaxPlasma)
         {
-            _popup.PopupClient("That xeno already has max plasma!", args.Target.Value, self, PopupType.MediumCaution);
+            _popup.PopupClient(Loc.GetString("cm-xeno-plasma-target-max"), args.Target.Value, self, PopupType.MediumCaution);
             return;
         }
 

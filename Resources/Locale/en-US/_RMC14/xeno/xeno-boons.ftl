@@ -81,3 +81,10 @@ rmc-boon-king-announcement-hatch-marine = [color=#CECECE][font size=16][bold]ARE
 
     CAUTION IS ADVISED.
 rmc-boon-king-announcement-hatch-xeno = All hail the King.
+
+rmc-boon-pylon-examine = [color=cyan]This will grant the hive 1 royal resin every { $minutes } minutes, allowing the Queen to obtain buffs![/color]
+rmc-boon-cluster-examine = [color=cyan]If placed { $minutes } minutes into the round, this can turn into a hive pylon when its weeds take over a telecommunications tower![/color]
+rmc-boon-tower-entangled = The { $tower } is entangled in resin. Impossible to interact with.
+
+rmc-boon-king-vote-title = Choose a sister
+rmc-boon-king-vote-description = Vote for a sister you wish to become the King.

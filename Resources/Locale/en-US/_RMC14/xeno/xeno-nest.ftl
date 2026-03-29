@@ -1,3 +1,5 @@
+rmc-xeno-nest-ghost-freed = \n[font size=24][color=red]You have been freed from your nest and may go back to your body![/color][/font]\n
+
 cm-xeno-nest-securing-self = We secrete a thick, vile resin, securing {$target} into the alien nest!
 cm-xeno-nest-securing-target = {$user} secretes a thick, vile resin, securing you into the alien nest!
 cm-xeno-nest-securing-observer = {$user} secretes a thick, vile resin, securing {$target} into the alien nest!

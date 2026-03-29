@@ -57,6 +57,7 @@ rmc-xeno-evolution-failed-early-weeds = The hive hasn't developed enough yet for
 rmc-xeno-evolution-failed-bad-location = We can't evolve here.
 rmc-xeno-evolution-start-self = We begin to twist and contort.
 rmc-xeno-evolution-start-others = {$xeno} begins to twist and contort.
+rmc-xeno-evolution-settle-down = It is time to settle down and let your children grow. 
 
 # Fortify
 cm-xeno-fortify-cant-headbutt = We can't headbutt while fortifying!
@@ -138,6 +139,7 @@ cm-xeno-plasma-transferred-to-self = {$target} has transferred {$plasma} plasma 
 cm-xeno-plasma-cannot-self = You can't transfer plasma to yourself!
 cm-xeno-plasma-other-max-zero = {CAPITALIZE(THE($target))} doesn't have any use for plasma!
 rmc-xeno-plasma-ovipositor = We can't transfer plasma to a queen mounted on her ovipositor.
+cm-xeno-plasma-target-max = That xeno already has max plasma!
 
 # Watch
 cm-xeno-watch = Watch Xeno

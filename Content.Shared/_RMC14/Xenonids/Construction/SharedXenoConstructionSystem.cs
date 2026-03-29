@@ -348,10 +348,7 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
 
             if (adjacent == default)
             {
-                _popup.PopupClient("You can only plant weeds if there is a nearby node.",
-                    args.Target,
-                    xeno,
-                    PopupType.MediumCaution);
+                _popup.PopupClient(Loc.GetString("rmc-xeno-weeds-need-node"), args.Target, xeno, PopupType.MediumCaution);
 
                 return;
             }
@@ -470,8 +467,8 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
                 return;
 
             var msg = hasBoost
-                ? "We regurgitate some resin and thicken the " + Name(upgradeable) + " effortlessly."
-                : $"We regurgitate some resin and thicken the {Name(upgradeable)}, using {cost} plasma.";
+                ? Loc.GetString("rmc-xeno-construction-boost-thicken", ("target", upgradeable))
+                : Loc.GetString("rmc-xeno-construction-thicken", ("target", upgradeable), ("cost", cost));
             _popup.PopupClient(msg, upgradeable, xeno);
 
             if (_net.IsClient)
@@ -1426,7 +1423,7 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
                 if (popup)
                 {
                     _popup.PopupClient(
-                        "We've already built the maximum possible structures we can!",
+                        Loc.GetString("rmc-xeno-construction-limit-reached"),
                         target,
                         xeno,
                         PopupType.MediumCaution
@@ -1939,8 +1936,8 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
         _actions.SetToggled(args.Action.AsNullable(), ent.Comp.BuildDoorNodes);
 
         var msg = ent.Comp.BuildDoorNodes
-            ? "We will now place door markers."
-            : "We will now place wall markers.";
+            ? Loc.GetString("rmc-xeno-designer-place-doors")
+            : Loc.GetString("rmc-xeno-designer-place-walls");
         _popup.PopupClient(msg, ent, ent, PopupType.Small);
 
         Dirty(ent);

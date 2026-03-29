@@ -706,11 +706,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
                 granter.GotOvipositorPopup = true;
                 Dirty(uid, granter);
 
-                _popup.PopupEntity("It is time to settle down and let your children grow.",
-                    uid,
-                    uid,
-                    PopupType.LargeCaution
-                );
+                _popup.PopupEntity(Loc.GetString("rmc-xeno-evolution-settle-down"), uid, uid, PopupType.LargeCaution);
 
                 _xenoHive.AnnounceNeedsOvipositorToSameHive(uid);
             }

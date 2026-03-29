@@ -1,3 +1,11 @@
+rmc-xeno-announce-unknown-location = Unknown
+
+rmc-xeno-announce-wrap-hive = [color={ $color }][font size=16][bold]{ $message }[/bold][/font][/color]\n\n
+
+rmc-xeno-announce-queen-mother = 
+    \n[bold][color=#7575F3][font size=24]Queen Mother Psychic Directive[/font][/color][/bold]
+    \n\n[color=red][font size=14]{ $message }[/font][/color]\n\n
+
 rmc-xeno-failed-cant-infect = We can't infect {THE($target)}!
 rmc-xeno-failed-cant-reach = We can't reach {$target}, they need to be lying down!
 rmc-xeno-failed-target-dead = We can't infect the dead!
@@ -23,3 +31,4 @@ rmc-xeno-parasite-ghost-carrier-reserved = {THE($xeno)} has reserved the remaini
 rmc-xeno-parasite-ghost-carrier-dead = {THE($xeno)} is dead and all {POSS-ADJ($xeno)} children died with {OBJECT($xeno)}.
 
 rmc-xeno-parasite-carrier-death = The chittering mass of tiny aliens try to escape {THE($xeno)}!
+rmc-xeno-throw-parasite-on-fire = Retrieving a stored parasite while we're on fire would burn it!

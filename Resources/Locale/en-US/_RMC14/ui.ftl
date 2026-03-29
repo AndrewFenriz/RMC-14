@@ -98,8 +98,8 @@ rmc-ui-xeno-night-vision-default-off = Off
 rmc-ui-xeno-night-vision-default-half = Half light
 rmc-ui-xeno-night-vision-default-full = Full
 rmc-night-vision-mode-verb = Set night vision: {$mode}
+rmc-night-vision-optic-error = You cannot use the night vision optic while using optics.
 
-rmc-area-info = {$area}{$restrictions}
 rmc-tacmap-alert-ceiling-level-0 = [color=green]✓[/color] All actions allowed
 rmc-tacmap-alert-ceiling-level-1 = [color=red]✗[/color] Mortar Placement, Lasing, Medevac
 rmc-tacmap-alert-ceiling-level-2 = [color=red]✗[/color] Supply Drops, Mortar Fire
@@ -116,3 +116,11 @@ rmc-ui-options-chat-squad-color-mode = Colorize names of the speaker by squads
 # Dialog input
 rmc-dialog-input-placeholder-default = Enter text
 rmc-dialog-input-placeholder-smart-check = More than 3 consecutive spaces will be trimmed
+
+rmc-ui-button-yes = Yes
+rmc-ui-button-no = No
+rmc-ui-button-confirm = Confirm
+rmc-ui-button-cancel = Cancel
+rmc-ui-button-help-sign = ?
+rmc-ui-dialog-options-default-message = [bold]What do you wish to do?[/bold]
+rmc-ui-dialog-options-search-placeholder = Search...

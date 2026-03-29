@@ -59,8 +59,7 @@ public sealed class HealthScannerSystem : EntitySystem
 
         if (delay > TimeSpan.Zero)
         {
-            var name = Loc.GetString("zzzz-the", ("ent", target));
-            _popup.PopupClient($"You start fumbling around with {name}...", target, args.User);
+            _popup.PopupClient(Loc.GetString("rmc-health-analyzer-fumbling", ("target", target)), target, args.User);
         }
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -127,7 +126,7 @@ public sealed class HealthScannerSystem : EntitySystem
             !HasComp<MobStateComponent>(target) ||
             !HasComp<MobThresholdsComponent>(target))
         {
-            _popup.PopupClient("You can't analyze that!", target, user);
+            _popup.PopupClient(Loc.GetString("rmc-health-analyzer-cannot-analyze"), target, user);
             return false;
         }
 

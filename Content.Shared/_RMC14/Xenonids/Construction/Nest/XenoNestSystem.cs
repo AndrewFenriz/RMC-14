@@ -181,7 +181,8 @@ public sealed class XenoNestSystem : EntitySystem
             player.AttachedEntity is { } ghost &&
             HasComp<GhostComponent>(ghost))
         {
-            _rmcChat.ChatMessageToOne("\n[font size=24][color=red]You have been freed from your nest and may go back to your body![/color][/font]\n", ghost);
+            var chatMsg = Loc.GetString("rmc-xeno-nest-ghost-freed");
+            _rmcChat.ChatMessageToOne(chatMsg, ghost);
 
             var returnTo = EnsureComp<RMCGhostReturnComponent>(ghost);
             returnTo.Target = ent;

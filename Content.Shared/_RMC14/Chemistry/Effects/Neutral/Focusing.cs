@@ -18,13 +18,16 @@ public sealed partial class Focusing : RMCChemicalEffect
 
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
-        var focusing = ActualPotency >= 3
-            ? ". Also powerful enough to instantly cure mute and blindness."
-            : ".";
+        var key = ActualPotency >= 3 
+            ? "rmc-reagent-effect-focusing-guidebook-powerful" 
+            : "rmc-reagent-effect-focusing-guidebook-normal";
 
-        return $"Removes [color=green]{PotencyPerSecond}[/color] units of alcoholic substances and [color=green]{PotencyPerSecond * 2}[/color] seconds of drunkenness{focusing}\n" +
-               $"Overdoses cause [color=red]{PotencyPerSecond}[/color] toxin damage.\n" +
-               $"Critical overdoses cause [color=red]{PotencyPerSecond * 3}[/color] toxin damage";
+        return Loc.GetString(key,
+            ("alcohols", PotencyPerSecond),
+            ("drunkenness", PotencyPerSecond * 2),
+            ("overdoseDamage", PotencyPerSecond),
+            ("criticalDamage", PotencyPerSecond * 3)
+        );
     }
 
     protected override void Tick(DamageableSystem damageable, FixedPoint2 potency, EntityEffectReagentArgs args)

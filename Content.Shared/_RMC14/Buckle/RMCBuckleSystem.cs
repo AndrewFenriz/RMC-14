@@ -100,7 +100,7 @@ public sealed class RMCBuckleSystem : EntitySystem
 
         if (popup)
         {
-            _popup.PopupPredicted("You don't have the dexterity to do that, try a nest.",
+            _popup.PopupPredicted(Loc.GetString("rmc-buckle-dexterity-low"),
                 buckle,
                 user.Value,
                 PopupType.SmallCaution);

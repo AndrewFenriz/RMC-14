@@ -26,23 +26,31 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        var locationName = "Unknown";
+        var locationName = Loc.GetString("rmc-xeno-announce-unknown-location");
         if (_areas.TryGetArea(ent, out _, out var areaProto))
             locationName = areaProto.Name;
 
         if (HasComp<ParasiteSpentComponent>(ent))
-            AnnounceSameHive(ent.Owner, Loc.GetString("rmc-xeno-parasite-announce-infect", ("xeno", ent.Owner), ("location", locationName)), color: ent.Comp.Color);
+        {
+            var msg = Loc.GetString("rmc-xeno-parasite-announce-infect", ("xeno", ent.Owner), ("location", locationName));
+            AnnounceSameHive(ent.Owner, msg, color: ent.Comp.Color);
+        }
         else
         {
             if (HasComp<XenoEvolutionGranterComponent>(ent) || _xenoEvolution.HasLiving<XenoEvolutionGranterComponent>(1))
-                AnnounceSameHive(ent.Owner, Loc.GetString(ent.Comp.Message, ("xeno", ent.Owner), ("location", locationName)), color: ent.Comp.Color);
+            {
+                var msg = Loc.GetString(ent.Comp.Message, ("xeno", ent.Owner), ("location", locationName));
+                AnnounceSameHive(ent.Owner, msg, color: ent.Comp.Color);
+            }
         }
     }
 
     public string WrapHive(string message, Color? color = null)
     {
         color ??= Color.FromHex("#921992");
-        return $"[color={color.Value.ToHex()}][font size=16][bold]{message}[/bold][/font][/color]\n\n";
+        return Loc.GetString("rmc-xeno-announce-wrap-hive", 
+            ("message", message), 
+            ("color", color.Value.ToHex()));
     }
 
     /// <summary>
@@ -125,6 +133,6 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
 
     public string FormatQueenMother(string message)
     {
-        return $"\n[bold][color=#7575F3][font size=24]Queen Mother Psychic Directive[/font][/color][/bold]\n\n[color=red][font size=14]{message}[/font][/color]\n\n";
+        return Loc.GetString("rmc-xeno-announce-queen-mother", ("message", message));
     }
 }

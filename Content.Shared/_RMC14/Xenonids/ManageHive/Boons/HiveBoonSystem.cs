@@ -239,7 +239,7 @@ public sealed class HiveBoonSystem : EntitySystem
     {
         using (args.PushGroup(nameof(HivePylonComponent)))
         {
-            var msg = $"[color=cyan]This will grant the hive 1 royal resin every {(int)_royalResinEvery.TotalMinutes} minutes, allowing the Queen to obtain buffs![/color]";
+            var msg = Loc.GetString("rmc-boon-pylon-examine", ("minutes", (int)_royalResinEvery.TotalMinutes));
             args.PushMarkup(msg);
         }
     }
@@ -272,7 +272,7 @@ public sealed class HiveBoonSystem : EntitySystem
     {
         using (args.PushGroup(nameof(HivePylonComponent)))
         {
-            var msg = $"[color=cyan]If placed {(int) CommunicationTowerXenoTakeoverTime.TotalMinutes} minutes into the round, this can turn into a hive pylon when its weeds take over a telecommunications tower![/color]";
+            var msg = Loc.GetString("rmc-boon-cluster-examine", ("minutes", (int) CommunicationTowerXenoTakeoverTime.TotalMinutes));
             args.PushMarkup(msg);
         }
     }
@@ -310,7 +310,7 @@ public sealed class HiveBoonSystem : EntitySystem
             return;
 
         args.Cancelled = true;
-        args.Popup = $"The {Name(ent)} is entangled in resin. Impossible to interact with.";
+        args.Popup = Loc.GetString("rmc-boon-tower-entangled", ("tower", Name(ent)));
     }
 
     private void OnCocoonTerminating(Entity<HiveKingCocoonComponent> ent, ref EntityTerminatingEvent args)
@@ -376,7 +376,12 @@ public sealed class HiveBoonSystem : EntitySystem
 
         foreach (var uid in canVoteList)
         {
-            _dialog.OpenOptions(uid, "Choose a sister", options, "Vote for a sister you wish to become the King.");
+            _dialog.OpenOptions(
+                uid, 
+                Loc.GetString("rmc-boon-king-vote-title"), 
+                options, 
+                Loc.GetString("rmc-boon-king-vote-description")
+            );
         }
 
         EnsureVote(cocoon);

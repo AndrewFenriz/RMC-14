@@ -1,0 +1,9 @@
+﻿rmc-marine-comms-title = Groundside Operations
+rmc-marine-comms-planet = Planet:{" "}
+rmc-marine-comms-operation = Operation:{" "}
+rmc-marine-comms-medal = Give a medal
+rmc-marine-comms-tactical-map = Tactical Map
+rmc-marine-comms-overwatch = Overwatch
+rmc-marine-comms-designate-echo = Designate Echo Squad
+rmc-marine-comms-designate-lz = Designate Primary LZ
+rmc-marine-comms-send = Send

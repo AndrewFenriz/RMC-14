@@ -16,8 +16,8 @@ public sealed partial class SelectDestinationTunnelWindow : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        Title = Loc.GetString("xeno-ui-select-destination-tunnel-title");
-        SelectButton.Text = Loc.GetString("xeno-ui-select-destination-tunnel-submit-text");
+        Title = Loc.GetString("rmc-xeno-ui-select-destination-tunnel-title");
+        SelectButton.Text = Loc.GetString("rmc-xeno-ui-select-destination-tunnel-submit-text");
 
         UpdateSelectedTunnelDisplay(null);
     }
@@ -45,15 +45,16 @@ public sealed partial class SelectDestinationTunnelWindow : DefaultWindow
     {
         if (selectedTunnelName == null)
         {
-            SelectedTunnelLabel.Text = "None selected";
-            SelectedTunnelLabel.ToolTip = "None selected";
+            var noneSelected = Loc.GetString("rmc-xeno-ui-select-destination-tunnel-none-selected");
+            SelectedTunnelLabel.Text = noneSelected;
+            SelectedTunnelLabel.ToolTip = noneSelected;
             SelectedTunnelLabel.StyleClasses.Clear();
             SelectedTunnelLabel.StyleClasses.Add("LabelSecondary");
             SelectButton.Disabled = true;
         }
         else
         {
-            var displayText = $"Selected: {selectedTunnelName}";
+            var displayText = Loc.GetString("rmc-xeno-ui-select-destination-tunnel-selected", ("name", selectedTunnelName));
             SelectedTunnelLabel.Text = displayText;
             SelectedTunnelLabel.ToolTip = displayText;
             SelectedTunnelLabel.StyleClasses.Clear();
@@ -65,8 +66,8 @@ public sealed partial class SelectDestinationTunnelWindow : DefaultWindow
     public void UpdateCurrentTunnelDisplay(string? currentTunnelName)
     {
         var displayText = currentTunnelName != null
-            ? $"Current: {currentTunnelName}"
-            : "Current: Unknown";
+            ? Loc.GetString("rmc-xeno-ui-select-destination-tunnel-current", ("name", currentTunnelName))
+            : Loc.GetString("rmc-xeno-ui-select-destination-tunnel-current-unknown");
         CurrentTunnelLabel.Text = displayText;
         CurrentTunnelLabel.ToolTip = displayText;
     }

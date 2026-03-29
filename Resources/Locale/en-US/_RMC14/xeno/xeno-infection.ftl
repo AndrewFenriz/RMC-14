@@ -25,3 +25,7 @@ rmc-xeno-infection-burst-now-victim = You feel something ripping up your insides
 rmc-xeno-infection-burst-now-xeno = We start bursting out of {THE($victim)}'s chest!
 
 rmc-xeno-infected-bursted = {CAPITALIZE(SUBJECT($victim))} {CONJUGATE-HAVE($victim)} a giant hole in {POSS-ADJ($victim)} chest!
+
+rmc-xeno-infection-examine-xeno = This one is hosting a sister! She will emerge in time.
+rmc-xeno-infection-examine-ghost = This creature is infected.
+rmc-xeno-parasite-burn-warning = Touching the parasite while you're on fire would burn it!

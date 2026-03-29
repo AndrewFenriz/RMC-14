@@ -392,9 +392,8 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 //TODO RMC14 replace if it gets a locId
                 if (_player.TryGetSessionByEntity(victim, out var session))
                 {
-                    var msg = "[font size=16][color=red]Orbital bombardment launch command detected![/color][/font]";
-                    msg = $"[bold][font size=24][color=red]\n{msg}\n[/color][/font][/bold]";
-                    _rmcChat.ChatMessageToOne(ChatChannel.Radio, msg, msg, default, false, session.Channel, recordReplay: true);
+                    var msgAlert = Loc.GetString("rmc-ob-announcement-launch-detected");
+                    _rmcChat.ChatMessageToOne(ChatChannel.Radio, msgAlert, msgAlert, default, false, session.Channel, recordReplay: true);
 
                     if (_area.TryGetArea(victim.ToCoordinates(), out _, out var areaProto))
                     {
@@ -402,8 +401,10 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
                         if (_proto.TryIndex(warhead, out var warHeadProto))
                         {
-                            msg = $"[color=red]Launch command informs {warHeadProto.Name}. Estimated impact area: {areaProto.Name}[/color]";
-                            _rmcChat.ChatMessageToOne(ChatChannel.Radio, msg, msg, default, false, session.Channel, recordReplay: true);
+                            var msgImpact = Loc.GetString("rmc-ob-announcement-impact-area", 
+                                ("warhead", warHeadProto.Name), 
+                                ("area", areaProto.Name));
+                            _rmcChat.ChatMessageToOne(ChatChannel.Radio, msgImpact, msgImpact, default, false, session.Channel, recordReplay: true);
                         }
                     }
                 }
@@ -620,8 +621,8 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
         if (_player.TryGetSessionByEntity(player, out var session))
         {
-            msg = $"[bold][font size=24][color=red]\n{msg}\n[/color][/font][/bold]";
-            _rmcChat.ChatMessageToOne(ChatChannel.Radio, msg, msg, default, false, session.Channel, recordReplay: true);
+            var wrappedMsg = Loc.GetString("rmc-neuro-hallucination-warning-wrap", ("message", msg));
+            _rmcChat.ChatMessageToOne(ChatChannel.Radio, wrappedMsg, wrappedMsg, default, false, session.Channel, recordReplay: true);
         }
     }
 }

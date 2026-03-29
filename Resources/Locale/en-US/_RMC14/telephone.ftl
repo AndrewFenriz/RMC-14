@@ -1,3 +1,8 @@
+rmc-telephone-title = Telephone
+rmc-telephone-busy = That phone is busy!
+rmc-telephone-no-transmitters = No transmitters could be located to call!
+rmc-telephone-snap-back = The { $phone } snaps back to the { $rotary }!
+rmc-telephone-dial-number = { $marine } dials a number on the { $phone }.
 admin-call-incoming = "{$to}" is being called from "{$from}" by "{$actor}"
 phone-dnd-button = DO NOT DISTURB
 phone-dnd-tooltip-enabled = DO NOT DISTURB is ENABLED

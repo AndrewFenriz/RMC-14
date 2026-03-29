@@ -219,7 +219,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
         using (args.PushGroup(nameof(CraftsIntoMolotovComponent)))
         {
-            args.PushMarkup("[color=cyan]You can turn this into a molotov with a piece of paper![/color]");
+            args.PushMarkup(Loc.GetString("rmc-molotov-craft-examine"));
         }
     }
 
@@ -348,12 +348,11 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         Pat(ent.Owner, patter.Stacks);
 
         _audio.PlayPredicted(patter.Sound, user, user);
-        _popup.PopupClient($"You try to put out the fire on {Name(ent)}!", ent, user, PopupType.SmallCaution);
-        _popup.PopupEntity($"{Name(user)} tries to put out the fire on you!", ent, ent, PopupType.SmallCaution);
+        _popup.PopupClient(Loc.GetString("rmc-flammable-pat-user", ("target", ent.Owner)), ent, user, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString("rmc-flammable-pat-target", ("user", user)), ent, ent, PopupType.SmallCaution);
 
         var others = Filter.PvsExcept(ent).RemoveWhereAttachedEntity(e => e == user || e == ent.Owner);
-        _popup.PopupEntity($"{Name(user)} tries to put out the fire on {Name(ent)}!", ent, others, true);
-
+        _popup.PopupEntity(Loc.GetString("rmc-flammable-pat-others", ("user", user), ("target", ent.Owner)), ent, others, true);
     }
 
     private void OnFlammableIgnite(Entity<FlammableComponent> ent, ref IgnitedEvent args)
@@ -662,7 +661,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             solution.Volume <= FixedPoint2.Zero)
         {
             if (popup)
-                _popup.PopupClient($"The {Name(ent)} is empty...", ent, user, PopupType.SmallCaution);
+                _popup.PopupClient(Loc.GetString("rmc-molotov-empty", ("item", ent.Owner)), ent, user, PopupType.SmallCaution);
 
             return false;
         }
@@ -680,8 +679,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         {
             if (popup)
             {
-                var msg = $"There's not enough flammable liquid in the {Name(ent)}!";
-                _popup.PopupClient(msg, ent, user, PopupType.SmallCaution);
+                _popup.PopupClient(Loc.GetString("rmc-molotov-low-fuel", ("item", ent.Owner)), ent, user, PopupType.SmallCaution);
             }
 
             return false;
@@ -754,8 +752,11 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     {
         using (args.PushGroup(nameof(RMCFireArmorDebuffModifierComponent)))
         {
-            args.PushMarkup(Loc.GetString("rmc-fire-armor-debuff-modifier-examine", ("ent", ent), ("percentage",
-                $"{(ent.Comp.DebuffModifier - 1) * 100:F0}")));
+            var percentage = (ent.Comp.DebuffModifier - 1) * 100;
+            args.PushMarkup(Loc.GetString("rmc-fire-armor-debuff-modifier-examine", 
+                ("ent", ent.Owner), 
+                ("percentage", Math.Round(percentage, 0))
+            ));
         }
     }
 

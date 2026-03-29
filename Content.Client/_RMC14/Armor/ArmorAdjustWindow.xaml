@@ -1,14 +1,14 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-               Title="Armor Values">
+               Title="{Loc 'rmc-armor-values-title'}">
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="50" Margin="4">
-        <Label Text="Bullet Armor" />
-        <LineEdit Name="BulletLineEdit" Text="Enter bullet armor value" />
-        <Label Text="Melee Armor" />
-        <LineEdit Name="MeleeLineEdit" Text="Enter melee armor value" />
-        <Label Text="Explosion Armor" />
-        <LineEdit Name="ExplosionLineEdit" Text="Enter explosion armor value" />
-        <Label Text="Bio Armor" />
-        <LineEdit Name="BioLineEdit" Text="Enter bio armor value" />
+        <Label Text="{Loc 'rmc-armor-values-bullet'}" />
+        <LineEdit Name="BulletLineEdit" Text="{Loc 'rmc-armor-values-bullet-placeholder'}" />
+        <Label Text="{Loc 'rmc-armor-values-melee'}" />
+        <LineEdit Name="MeleeLineEdit" Text="{Loc 'rmc-armor-values-melee-placeholder'}" />
+        <Label Text="{Loc 'rmc-armor-values-explosion'}" />
+        <LineEdit Name="ExplosionLineEdit" Text="{Loc 'rmc-armor-values-explosion-placeholder'}" />
+        <Label Text="{Loc 'rmc-armor-values-bio'}" />
+        <LineEdit Name="BioLineEdit" Text="{Loc 'rmc-armor-values-bio-placeholder'}" />
     </BoxContainer>
 </DefaultWindow>

@@ -13,3 +13,5 @@ rmc-fusion-reactor-repair-start-self = You start repairing {$reactor} with {$too
 
 rmc-fusion-reactor-already-destroyed = You see no reason to attack the {$reactor}.
 rmc-fusion-reactor-destroyed = The {$reactor} gets torn apart!
+
+rmc-fusion-reactor-examine-needs-fuel = It needs a [color=cyan]fuel cell[/color]!

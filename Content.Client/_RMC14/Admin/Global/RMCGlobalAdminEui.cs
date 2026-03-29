@@ -27,11 +27,11 @@ public sealed class RMCGlobalAdminEui : BaseEui
     {
         _window = new RMCGlobalAdminWindow();
 
-        TabContainer.SetTabTitle(_window.CVarsTab, "CVars");
-        TabContainer.SetTabTitle(_window.MarinesTab, "Marines");
-        TabContainer.SetTabTitle(_window.XenosTab, "Xenos");
-        TabContainer.SetTabTitle(_window.TacticalMapTab, "Tactical Map");
-        TabContainer.SetTabTitle(_window.FactionsTab, "Factions");
+        TabContainer.SetTabTitle(_window.CVarsTab, Loc.GetString("rmc-global-admin-tab-cvars"));
+        TabContainer.SetTabTitle(_window.MarinesTab, Loc.GetString("rmc-global-admin-tab-marines"));
+        TabContainer.SetTabTitle(_window.XenosTab, Loc.GetString("rmc-global-admin-tab-xenos"));
+        TabContainer.SetTabTitle(_window.TacticalMapTab, Loc.GetString("rmc-global-admin-tab-tactical-map"));
+        TabContainer.SetTabTitle(_window.FactionsTab, Loc.GetString("rmc-global-admin-tab-factions"));
 
         _window.RefreshButton.OnPressed += OnRefresh;
         _window.OpenCentered();
@@ -100,7 +100,7 @@ public sealed class RMCGlobalAdminEui : BaseEui
             _window.Squads.AddChild(squadRow);
         }
 
-        _window.MarinesLabel.Text = $"Total marine players alive: {s.Marines}";
+        _window.MarinesLabel.Text = Loc.GetString("rmc-global-admin-marines-alive", ("count", s.Marines));
 
         var xenoTiers = new Dictionary<int, int>();
         foreach (var entity in _prototypes.EnumeratePrototypes<EntityPrototype>())
@@ -122,7 +122,7 @@ public sealed class RMCGlobalAdminEui : BaseEui
 
         foreach (var (tier, amount) in xenoTiers.OrderBy(x => x.Key))
         {
-            _window.XenoTiers.AddChild(new Label { Text = $"Tier {tier}: {amount} xenos" });
+            _window.XenoTiers.AddChild(new Label { Text = Loc.GetString("rmc-global-admin-xeno-tier", ("tier", tier), ("amount", amount)) });
             _window.XenoTiers.AddChild(new HSeparator
             {
                 Color = Color.FromHex("#4972A1"),
@@ -130,11 +130,11 @@ public sealed class RMCGlobalAdminEui : BaseEui
             });
         }
 
-        _window.XenosLabel.Text = $"Total xenonid players alive: {s.Xenos.Count}";
+        _window.XenosLabel.Text = Loc.GetString("rmc-global-admin-xenos-alive", ("count", s.Xenos.Count));
 
         foreach (var (guid, actor, round) in s.TacticalMapHistory)
         {
-            var lines = new Button { Text = $"Round {round} by {actor}" };
+            var lines = new Button { Text = Loc.GetString("rmc-global-admin-tactical-map-entry", ("round", round), ("actor", actor)) };
             lines.OnPressed += _ => SendMessage(new RMCAdminRequestTacticalMapHistory(guid));
             _window.TacticalMapHistory.AddChild(lines);
         }
@@ -142,11 +142,11 @@ public sealed class RMCGlobalAdminEui : BaseEui
         _window.TacticalMap.Lines.Clear();
         if (s.TacticalMapLines == default)
         {
-            _window.TacticalMapLabel.Text = "Selected: None";
+            _window.TacticalMapLabel.Text = Loc.GetString("rmc-global-admin-tactical-map-selected-none");
         }
         else
         {
-            _window.TacticalMapLabel.Text = $"Selected: Round {s.TacticalMapLines.RoundId} by {s.TacticalMapLines.Actor}";
+            _window.TacticalMapLabel.Text = Loc.GetString("rmc-global-admin-tactical-map-selected", ("round", s.TacticalMapLines.RoundId), ("actor", s.TacticalMapLines.Actor));
             _window.TacticalMap.Texture = Texture.Transparent;
             _window.TacticalMap.Lines.AddRange(s.TacticalMapLines.Lines);
         }

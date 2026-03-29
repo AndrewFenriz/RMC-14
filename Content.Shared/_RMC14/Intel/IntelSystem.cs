@@ -250,7 +250,7 @@ public sealed class IntelSystem : EntitySystem
         var ev = new IntelReadDoAfterEvent();
         var doAfter = new DoAfterArgs(EntityManager, user, delay, ev, ent) { BreakOnDropItem = true, NeedHand = true };
         if (_doAfter.TryStartDoAfter(doAfter))
-            _popup.PopupClient($"You start reading the {Name(ent)}", ent, user);
+            _popup.PopupClient(Loc.GetString("rmc-intel-read-start", ("ent", ent.Owner)), ent, user);
     }
 
     private void OnHandPickUp(EntityUid ent,
@@ -299,19 +299,19 @@ public sealed class IntelSystem : EntitySystem
         args.Handled = true;
         if (args.Cancelled)
         {
-            _popup.PopupClient("You get distracted and lose your train of thought, you'll have to start over reading this.", ent, user);
+            _popup.PopupClient(Loc.GetString("rmc-intel-read-distracted"), ent, user);
             return;
         }
 
         if (ent.Comp.State == IntelObjectiveState.Inactive)
         {
-            _popup.PopupClient("You don't notice anything useful. You probably need to find its instructions on a paper scrap", ent, user);
+            _popup.PopupClient(Loc.GetString("rmc-intel-read-nothing"), ent, user);
             return;
         }
 
         // TODO RMC14 clues
 
-        _popup.PopupClient($"You finish reading the {Name(ent)}", ent, user);
+        _popup.PopupClient(Loc.GetString("rmc-intel-read-finish", ("ent", ent.Owner)), ent, user);
         if (ent.Comp.State == IntelObjectiveState.Complete)
             return;
 
@@ -452,16 +452,14 @@ public sealed class IntelSystem : EntitySystem
 
     private void OnConsoleInteractHand(Entity<IntelConsoleComponent> ent, ref InteractHandEvent args)
     {
-        var msg = "You start typing in intel into the computer...";
         if (!TryComp(args.User, out IntelKnowledgeComponent? knowledge) ||
             !knowledge.Read.TryFirstOrNull(out var read))
         {
-            msg += " and you have nothing new to add...";
-            _popup.PopupClient(msg, ent, args.User, PopupType.Medium);
+            _popup.PopupClient(Loc.GetString("rmc-intel-console-start-nothing"), ent, args.User, PopupType.Medium);
             return;
         }
 
-        _popup.PopupClient(msg, ent, args.User, PopupType.Medium);
+        _popup.PopupClient(Loc.GetString("rmc-intel-console-start"), ent, args.User, PopupType.Medium);
 
         var delay = ent.Comp.Delay * _skills.GetSkillDelayMultiplier(args.User, ent.Comp.Skill);
         var ev = new IntelSubmitDoAfterEvent { Intel = GetNetEntity(read.Value) };
@@ -481,7 +479,7 @@ public sealed class IntelSystem : EntitySystem
         if (args.Cancelled)
         {
             _popup.PopupEntity(
-                "You get distracted and lose your train of thought, you'll have to start the typing over...",
+                Loc.GetString("rmc-intel-reports-distracted"),
                 ent,
                 args.User,
                 PopupType.MediumCaution
@@ -494,9 +492,9 @@ public sealed class IntelSystem : EntitySystem
         void StopPopup(ref IntelSubmitDoAfterEvent args)
         {
             if (args.Amount == 0)
-                _popup.PopupEntity("...and you have nothing new to add...", ent, args.User, PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("rmc-intel-reports-none"), ent, args.User, PopupType.Medium);
             else
-                _popup.PopupEntity($"...and done! You uploaded {args.Amount} entries!", ent, args.User, PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("rmc-intel-reports-uploaded", ("amount", args.Amount)), ent, args.User, PopupType.Medium);
         }
 
         if (!TryComp(args.User, out IntelKnowledgeComponent? knowledge))

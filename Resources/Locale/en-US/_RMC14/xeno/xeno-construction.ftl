@@ -111,6 +111,7 @@ rmc-xeno-designer-delete-node-none = There's no design node here.
 rmc-xeno-designer-delete-node-not-owned = We can only delete our own design nodes.
 rmc-xeno-designer-use-node-wrong-hive = This node does not belong to your hive!
 rmc-xeno-designer-node-needs-weed = There are no weeds to create a connection!
+rmc-xeno-designer-node-not-construct = This design node cannot be used to build walls.
 
 rmc-xeno-designer-thicken-none = There's no resin structure here to thicken.
 rmc-xeno-designer-thicken-weedbound = We can't thicken weedbound resin.
@@ -120,3 +121,13 @@ rmc-xeno-designer-greater-surge-cooldown = We need to wait before using Greater 
 rmc-xeno-designer-greater-surge-none = There's no design nodes nearby.
 rmc-xeno-designer-greater-surge-success = We convert {$count} design nodes into thick resin walls.
 rmc-xeno-designer-infuse-node = You infuse the node with plasma.
+
+rmc-xeno-weeds-already-node = There's a pod here already!
+rmc-xeno-weeds-blocked-strong = These weeds are too strong to plant a node on!
+rmc-xeno-weeds-too-far = We can only plant weed nodes near other weed nodes our hive owns!
+rmc-xeno-weeds-need-node = You can only plant weeds if there is a nearby node.
+rmc-xeno-construction-boost-thicken = We regurgitate some resin and thicken the { $target } effortlessly.
+rmc-xeno-construction-thicken = We regurgitate some resin and thicken the { $target }, using { $cost } plasma.
+rmc-xeno-designer-place-doors = We will now place door markers.
+rmc-xeno-designer-place-walls = We will now place wall markers.
+rmc-xeno-construction-limit-reached = We've already built the maximum possible structures we can!

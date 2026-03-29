@@ -1,4 +1,27 @@
-﻿### OB Warnings
+﻿# Popup
+rmc-ob-tray-loaded = The tray is already loaded into the cannon!
+rmc-ob-warhead-already-loaded = There is already a warhead loaded!
+rmc-ob-cannot-insert = You can't insert { THE($used) } into the { THE($target) }!
+rmc-ob-load-success = You load { THE($used) } into the { THE($target) }!
+rmc-ob-fuel-no-warhead = A warhead must be placed in the { THE($target) } first.
+rmc-ob-fuel-full = The { THE($target) } can't accept more solid fuel!
+
+# OB
+rmc-ob-no-tray = The orbital cannon has no linked tray.
+rmc-ob-no-ammo = The orbital cannon has no ammo chambered.
+rmc-ob-out-of-bounds = The target zone appears to be out of bounds. Please check coordinates.
+rmc-ob-protected-area = The target zone has strong biological protection. The orbital strike cannot reach here.
+rmc-ob-underground = The target zone is deep underground. The orbital strike cannot reach here.
+rmc-ob-accepted = Orbital bombardment request accepted. Orbital cannons are now calibrating.
+rmc-ob-launched = Orbital bombardment launched!
+
+# Announcement
+rmc-ob-announcement-launch-detected = [font size=16][color=red]Orbital bombardment launch command detected![/color][/font]
+rmc-ob-announcement-impact-area = [color=red]Launch command informs { $warhead }. Estimated impact area: { $area }[/color]
+rmc-ob-announcement-deck-shudders = [color=red]The deck of the UNS Almayer shudders as the orbital cannons open fire on the colony.[/color]
+rmc-ob-squad-warning = WARNING! Ballistic trans-atmospheric launch detected! Get outside of Danger Close!
+
+# OB Warnings
 rmc-ob-warning-one = The sky erupts into flames to the {$direction}!
 rmc-ob-warning-above-one = The sky erupts into flames right above you!
 rmc-ob-warning-two = The sky roars louder to the {$direction}!
@@ -6,26 +29,27 @@ rmc-ob-warning-above-two = The sky roars louder right above you!
 rmc-ob-warning-three = OH GOD THE SKY WILL EXPLODE!!!
 rmc-ob-warning-above-three = YOU SHOULDN'T BE HERE!
 
-### Orbital Cannon Console
+# Orbital Cannon Console
 rmc-ui-ob-console-name = Orbital Cannon Console
 rmc-ui-ob-console-title = ORBITAL CANNON CONTROL
 
-### Status Sections
+# Status Sections
 rmc-ui-ob-warhead-status = WARHEAD STATUS
 rmc-ui-ob-fuel-status = FUEL STATUS
 rmc-ui-ob-tray-status = TRAY STATUS
 
-### Button Labels
+# Button Labels
 rmc-ui-ob-load-tray = Load Tray
 rmc-ui-ob-unload-tray = Unload Tray
 rmc-ui-ob-chamber-tray = Chamber Tray
 
-### Status Messages
+# Status Messages
 rmc-ui-ob-warhead-none = No warhead loaded!
 rmc-ui-ob-warhead-loaded = { $warhead } loaded!
 rmc-ui-ob-fuel-count = { $count } Fuel Blocks loaded
 rmc-ui-ob-tray-chambered = The tray is chambered, you cannot unchamber it.
 
+# Fuel Requirements Table
 rmc-ui-ob-fuel-instruction-title = WARHEAD FUEL REQUIREMENTS
 
 rmc-ui-ob-fuel-requirement = {$warhead}: {$fuel} Fuel blocks.

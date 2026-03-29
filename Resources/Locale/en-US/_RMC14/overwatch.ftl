@@ -104,3 +104,5 @@ rmc-overwatch-console-objective-updated = [bold][color=#7FFFD4]'{ $squadName }' 
 rmc-overwatch-console-objective-cancelled = [bold][color=#7FFFD4]'{ $squadName }' { $objectiveType } '{ $objective }' cancelled.[/color][/bold]
 rmc-overwatch-console-objectives = Your squad objectives:
     { $objectives }
+
+rmc-overwatch-console-busy-optics = You're too busy peering through optics.

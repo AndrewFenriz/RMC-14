@@ -1,17 +1,36 @@
-﻿rmc-intel-suffix = {$baseName} ({$number})
+﻿rmc-tech-control-title = Tech Control Console
+
+rmc-intel-suffix = {$baseName} ({$number})
 rmc-intel-unlocked = {$baseName} ({$unlocked})
 rmc-intel-serial-name = {$baseName} #{$serial}
 rmc-intel-serial-examine = The serial number is {$serial}.
 rmc-intel-announcement = TECH REPORT: {$points} points available.
 rmc-intel-announcement-gain = TECH REPORT: {$points} points available (+{$change}).
+
+rmc-intel-read-start = You start scanning {THE($ent)}...
+rmc-intel-read-finish = You finish scanning {THE($ent)}.
+rmc-intel-read-nothing = There is nothing of value here.
+rmc-intel-read-distracted = You get distracted and stop reading.
+
+rmc-intel-console-start = You start uploading the gathered intel...
+rmc-intel-console-start-nothing = You don't have any intel to upload.
+rmc-intel-reports-distracted = You get distracted and lose your train of thought, you'll have to start the typing over...
+rmc-intel-reports-none = ...and you have nothing new to add...
+rmc-intel-reports-uploaded = ...and done! You uploaded {$amount} {$amount ->
+[one] entry
+*[other] entries
+}!
+
 rmc-intel-reports = Reports
 rmc-intel-folders = Folders
 rmc-intel-manuals = Manuals
+
 rmc-intel-clue-paper-scrap = {$intel} in {$area}.
 rmc-intel-clue-progress-report = A {$intel} in {$area}.
 rmc-intel-clue-folder = A {$intel} in {$area}.
 rmc-intel-clue-technical-manual = {$intel} in {$area}.
 rmc-intel-clue-experimental-device = Retrieve {$intel} in {$area}.
+
 rmc-intel-survivor-pickup = I have no use for the {$thing}.
     I should focus on getting help first.
 rmc-intel-survivor-read = I have no need to read the {$thing}.
@@ -20,7 +39,6 @@ rmc-intel-survivor-xeno-pull = Trying to take the {$thing} with me will only slo
     I should focus on getting help first.
 rmc-intel-survivor-corpse-pull = I can't save {$thing}, they'll only slow me down.
     I should focus on getting help first.
-
 
 ## Intel Objectives Window
 rmc-ui-intel-title = Marine Tech Tree Objectives

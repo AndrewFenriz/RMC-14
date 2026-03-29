@@ -92,9 +92,13 @@ public sealed class IntelDetectorSystem : EntitySystem
             return;
 
         var user = args.User;
+        var text = ent.Comp.Short
+            ? Loc.GetString("rmc-detector-switch-long")
+            : Loc.GetString("rmc-detector-switch-short");
+
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = ent.Comp.Short ? "Change to long range mode" : "Change to short range mode",
+            Text = text,
             Act = () =>
             {
                 ent.Comp.Short = !ent.Comp.Short;
@@ -148,8 +152,11 @@ public sealed class IntelDetectorSystem : EntitySystem
     {
         using (args.PushGroup(nameof(IntelDetectorComponent)))
         {
-            var mode = ent.Comp.Short ? "short" : "long";
-            args.PushMarkup($"The motion detector is in [color=cyan]{mode}[/color] scanning mode.");
+            var mode = ent.Comp.Short
+                ? Loc.GetString("rmc-detector-mode-short")
+                : Loc.GetString("rmc-detector-mode-long");
+
+            args.PushMarkup(Loc.GetString("rmc-intel-detector-examined", ("mode", mode)));
         }
     }
 

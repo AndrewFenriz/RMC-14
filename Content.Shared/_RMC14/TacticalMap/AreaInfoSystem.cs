@@ -135,70 +135,70 @@ public sealed class AreaInfoSystem : EntitySystem
         var restrictedActions = new List<string>();
 
         if (_area.CanOrbitalBombard(coordinates, out _))
-            allowedActions.Add("Orbital Strike");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-orbital-strike"));
         else
-            restrictedActions.Add("Orbital Strike");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-orbital-strike"));
 
         if (_area.CanCAS(coordinates))
-            allowedActions.Add("Close Air Support");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-cas"));
         else
-            restrictedActions.Add("Close Air Support");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-cas"));
 
         if (_area.CanSupplyDrop(coordinates.ToMap(_entityManager, _transform)))
-            allowedActions.Add("Supply Drops");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-supply"));
         else
-            restrictedActions.Add("Supply Drops");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-supply"));
 
         if (_area.CanMortarFire(coordinates))
-            allowedActions.Add("Mortar Fire");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-mortar-fire"));
         else
-            restrictedActions.Add("Mortar Fire");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-mortar-fire"));
 
         if (_area.CanMortarPlacement(coordinates))
-            allowedActions.Add("Mortar Placement");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-mortar-place"));
         else
-            restrictedActions.Add("Mortar Placement");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-mortar-place"));
 
         if (_area.CanLase(coordinates))
-            allowedActions.Add("Laser Designation");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-laser"));
         else
-            restrictedActions.Add("Laser Designation");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-laser"));
 
         if (area.Value.Comp.Medevac)
-            allowedActions.Add("Casualty Evacuation");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-medevac"));
         else
-            restrictedActions.Add("Casualty Evacuation");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-medevac"));
 
         if (area.Value.Comp.Paradropping)
-            allowedActions.Add("Paradropping");
+            allowedActions.Add(Loc.GetString("rmc-tacmap-action-paradrop"));
         else
-            restrictedActions.Add("Paradropping");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-paradrop"));
 
         // Add special restrictions
         if (area.Value.Comp.NoTunnel)
-            restrictedActions.Add("Tunneling");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-tunnel"));
         if (area.Value.Comp.Unweedable)
-            restrictedActions.Add("Weed Placement");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-weeds"));
         else if (!area.Value.Comp.ResinAllowed)
-            restrictedActions.Add("Resin Structures");
+            restrictedActions.Add(Loc.GetString("rmc-tacmap-action-resin"));
 
         var protectionSource = "";
         if (hasHiveCoreProtection)
-            protectionSource = "\nProtection: Hive Core";
+            protectionSource = Loc.GetString("rmc-tacmap-protection-hive-core");
         else if (hasPylonProtection)
-            protectionSource = "\nProtection: Hive Pylon";
+            protectionSource = Loc.GetString("rmc-tacmap-protection-hive-pylon");
 
-        var restrictionsStr = $"\nCeiling level: {ceilingLevel}{protectionSource}";
+        var restrictionsStr = Loc.GetString("rmc-tacmap-ceiling-level", ("level", ceilingLevel)) + protectionSource;
 
         if (allowedActions.Count > 0)
         {
-            restrictionsStr += "\n\nAllowed:";
+            restrictionsStr += Loc.GetString("rmc-tacmap-allowed-header");
             restrictionsStr += "\n• " + string.Join("\n• ", allowedActions);
         }
 
         if (restrictedActions.Count > 0)
         {
-            restrictionsStr += "\n\nBlocked:";
+            restrictionsStr += Loc.GetString("rmc-tacmap-blocked-header");
             restrictionsStr += "\n• " + string.Join("\n• ", restrictedActions);
         }
 

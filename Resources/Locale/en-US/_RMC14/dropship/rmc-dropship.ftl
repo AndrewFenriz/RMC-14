@@ -1,6 +1,20 @@
 ﻿rmc-dropship-pre-flight-fueling = The shuttle is still undergoing pre-flight fueling and cannot depart yet. Please wait another {$minutes} minutes before trying again.
 rmc-dropship-pre-hijack = This terminal won't be operational for another {$minutes} minutes.
 rmc-dropship-invalid-hijack = Lights flash from the terminal but you can't comprehend their meaning.
+rmc-dropship-hijack-title = Dropship Hijack
+rmc-dropship-hijacker-title = [bold]Where to 'land'?[/bold]
+
+rmc-dropship-navigation-title = Flight Computer
+rmc-dropship-navigation-cancel = Cancel
+rmc-dropship-navigation-launch = Launch
+rmc-dropship-navigation-lockdown = Lockdown
+rmc-dropship-navigation-lock-aft = Lock Aft
+rmc-dropship-navigation-lock-port = Lock Port
+rmc-dropship-navigation-lock-starboard = Lock Starboard
+rmc-dropship-navigation-remote-unknown = ???
+
+rmc-dropship-terminal-title = Dropship Terminal
+rmc-dropship-terminal-summon = Summon
 
 rmc-dropship-weapons-title = Weapons Console
 
@@ -105,6 +119,7 @@ rmc-dropship-paradrop-lock-no-target = No target selected.
 rmc-dropship-paradrop-lock-target-not-flying = You can only enable the paradrop module while in flight.
 
 rmc-dropship-medevac-system-screen-text = RMU-4M Medevac System
+rmc-dropship-weapons-medevac-selected = You move your dropship above the selected stretcher's beacon. You can now manually activate the medevac system to hoist the patient up.
 
 rmc-dropship-fulton-system-screen-text = RMU-19 Fulton Recovery System
 
@@ -126,3 +141,14 @@ rmc-dropship-equipment-undeployed = UNDEPLOYED
 rmc-dropship-equipment-operational = OPERATIONAL
 rmc-dropship-equipment-damaged = DAMAGED
 rmc-dropship-equipment-destroyed = DESTROYED
+
+rmc-dropship-no-destinations = There are no dropship destinations near you!
+rmc-dropship-already-coming = There's already a dropship coming here!
+rmc-dropship-already-here = There is already a dropship here!
+rmc-dropship-not-primary = The shuttle isn't responding to prompts, it looks like this isn't the primary shuttle.
+rmc-dropship-no-available = There are no available dropships! Wait a moment.
+rmc-dropship-clueless = You stare cluelessly at the { $entity }
+rmc-dropship-call-down = You call down one of the dropships to your location
+rmc-dropship-on-its-way = This dropship is now on its way.
+rmc-dropship-no-remote = This dropship does not have remote-control enabled.
+rmc-dropship-busy = This dropship is currently busy. Please try again later.

@@ -106,7 +106,7 @@ public sealed class PryingSystem : EntitySystem
 
         if (HasComp<RMCUserPryingRequiresToolComponent>(user))
         {
-            _popup.PopupClient("You can't pry that with your bare hands!", target, user, PopupType.SmallCaution);
+            _popup.PopupClient(Loc.GetString("rmc-prying-needs-tool"), target, user, PopupType.SmallCaution);
             return true;
         }
 
