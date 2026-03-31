@@ -117,6 +117,7 @@ rmc-dropship-paradrop-target-screen-target-targeting = Locked to {$dropTarget}.
 
 rmc-dropship-paradrop-lock-no-target = No target selected.
 rmc-dropship-paradrop-lock-target-not-flying = You can only enable the paradrop module while in flight.
+rmc-dropship-paradrop-failed = Your harness got stuck and is preventing you from jumping
 
 rmc-dropship-medevac-system-screen-text = RMU-4M Medevac System
 rmc-dropship-weapons-medevac-selected = You move your dropship above the selected stretcher's beacon. You can now manually activate the medevac system to hoist the patient up.
@@ -167,3 +168,10 @@ rmc-dropship-electronic-spotlight = Spotlight
 rmc-dropship-weapons-mode-none = NONE
 rmc-dropship-weapons-mode-weapon = WEAPON
 rmc-dropship-weapons-target-none = NONE
+
+rmc-dropship-launch-bay-screen-text = LAG-14 Internal Sentry Launcher
+rmc-dropship-launch-bay-screen-text-loaded = LAG-14 Internal Sentry Launcher
+
+    Loaded: {$loaded}
+
+    Ammo: {$current} / {$max}
