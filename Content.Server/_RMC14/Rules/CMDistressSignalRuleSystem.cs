@@ -876,11 +876,10 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                     continue;
 
                 var gridOffset = new Vector2(shipIndex * 100, shipIndex * 100);
+                shipIndex++;
 
                 if (!_mapLoader.TryLoadGrid(dropshipMap, destination.Spawn.Value, out var shipGrids, offset: gridOffset))
                     continue;
-
-                shipIndex++;
 
                 var computers = EntityQueryEnumerator<DropshipNavigationComputerComponent, TransformComponent>();
                 while (computers.MoveNext(out var computerId, out var computer, out var xform))
