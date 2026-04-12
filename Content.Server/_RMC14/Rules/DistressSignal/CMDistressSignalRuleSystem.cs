@@ -15,6 +15,7 @@ using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Popups;
 using Content.Server.Preferences.Managers;
+using Content.Server.RandomMetadata;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.EntitySystems;
@@ -132,10 +133,7 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ScalingSystem _scaling = default!;
     [Dependency] private readonly SharedXenoConstructionSystem _xenoConstruction = default!;
-
-    private readonly HashSet<string> _operationNames = new();
-    private readonly HashSet<string> _operationPrefixes = new();
-    private readonly HashSet<string> _operationSuffixes = new();
+    [Dependency] private readonly RandomMetadataSystem _randomMetadata = default!;
 
     private float _marinesPerXeno;
     private bool _autoBalance;
@@ -155,7 +153,6 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
     private float _hijackShipWeight;
     private int _hijackMinBurrowed;
     private int _xenosMinimum;
-    private bool _usingCustomOperationName;
     private bool _queenBuildingBoostEnabled;
     private TimeSpan _queenBoostDuration;
     private float _queenBoostSpeedMultiplier;
@@ -226,7 +223,6 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
         _xenoNestedQuery = GetEntityQuery<XenoNestedComponent>();
 
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
         SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawning,
              before: [typeof(ArrivalsSystem), typeof(SpawnPointSystem)]);
@@ -266,14 +262,6 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
         Subs.CVar(_config, RMCCVars.RMCQueenBuildingBoostDurationMinutes, v => _queenBoostDuration = TimeSpan.FromMinutes(v), true);
         Subs.CVar(_config, RMCCVars.RMCQueenBuildingBoostSpeedMultiplier, v => _queenBoostSpeedMultiplier = v, true);
         Subs.CVar(_config, RMCCVars.RMCQueenBuildingBoostRemoteRange, v => _queenBoostRemoteRange = v, true);
-
-        ReloadPrototypes();
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs ev)
-    {
-        if (ev.WasModified<EntityPrototype>())
-            ReloadPrototypes();
     }
 
     private void OnMapLoading(LoadingMapsEvent ev)
@@ -354,7 +342,6 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
     public void SetCustomOperationName(string customname)
     {
         OperationName = customname;
-        _usingCustomOperationName = true;
     }
 
     private void EndRoundForQueenDeath(CMDistressSignalRuleComponent component)

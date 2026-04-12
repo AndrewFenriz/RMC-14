@@ -23,28 +23,6 @@ public sealed partial class CMDistressSignalRuleSystem
 {
     private const int FaxPowerLoadValue = 5;
 
-    // TODO RMC14: Move these to a prototype
-    private string GetRandomOperationName()
-    {
-        if (_usingCustomOperationName && OperationName != null)
-        {
-            _usingCustomOperationName = false;
-            return OperationName;
-        }
-
-        var name = string.Empty;
-        if (_operationNames.Count > 0)
-            name += $"{_random.Pick(_operationNames)} ";
-
-        if (_operationPrefixes.Count > 0)
-            name += $"{_random.Pick(_operationPrefixes)}";
-
-        if (_operationSuffixes.Count > 0)
-            name += $"-{_random.Pick(_operationSuffixes)}";
-
-        return name.Trim();
-    }
-
     private void SpawnAdminAreas(CMDistressSignalRuleComponent comp)
     {
         bool SpawnMap(ResPath path, [NotNullWhen(true)] out EntityUid? mapEntityUid)
@@ -354,25 +332,6 @@ public sealed partial class CMDistressSignalRuleSystem
             return (_random.Pick(latePoints), squad);
 
         return null;
-    }
-
-    private void ReloadPrototypes()
-    {
-        _operationNames.Clear();
-        _operationPrefixes.Clear();
-        _operationSuffixes.Clear();
-
-        foreach (var prototype in _prototypes.EnumeratePrototypes<EntityPrototype>())
-        {
-            if (prototype.TryGetComponent(out RMCDistressSignalNamesComponent? names, _compFactory))
-                _operationNames.UnionWith(names.Names);
-
-            if (prototype.TryGetComponent(out RMCDistressSignalPrefixesComponent? prefixes, _compFactory))
-                _operationPrefixes.UnionWith(prefixes.Prefixes);
-
-            if (prototype.TryGetComponent(out RMCDistressSignalSuffixesComponent? suffixes, _compFactory))
-                _operationSuffixes.UnionWith(suffixes.Suffixes);
-        }
     }
 
     /// <summary>
