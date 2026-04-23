@@ -1,15 +1,4 @@
 ﻿Entries:
-- author: Dutch-VanDerLinde
-  changes:
-  - message: Being ignited will take the color of the fire for the fire visual color.
-    type: Add
-  - message: Fixed the stop, drop, and roll animation not playing.
-    type: Fix
-  - message: Fixed xenos triggering acid blood from fire tick damage.
-    type: Fix
-  id: 2663
-  time: '2025-12-10T01:30:40.0000000+00:00'
-  url: https://github.com/RMC-14/RMC-14/pull/8648
 - author: blueDev2
   changes:
   - message: Ruby ranked xenos properly get their prefixes
@@ -4461,5 +4450,14 @@
   id: 3162
   time: '2026-04-23T23:33:05.0000000+00:00'
   url: https://github.com/RMC-14/RMC-14/pull/9707
+- author: Dygon
+  changes:
+  - message: Fixed throwing items into disposal bins.
+    type: Fix
+  - message: Bullets no longer pass through ColMarTech vendors.
+    type: Fix
+  id: 3163
+  time: '2026-04-23T23:37:02.0000000+00:00'
+  url: https://github.com/RMC-14/RMC-14/pull/9717
 Name: RMC14
 Order: -1
