@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: blueDev2
-  changes:
-  - message: Ruby ranked xenos properly get their prefixes
-    type: Fix
-  id: 2664
-  time: '2025-12-10T01:32:55.0000000+00:00'
-  url: https://github.com/RMC-14/RMC-14/pull/8636
 - author: wheelwrightt
   changes:
   - message: Tacmap zooms on cursor rather than the center of the map.
@@ -4459,5 +4452,16 @@
   id: 3163
   time: '2026-04-23T23:37:02.0000000+00:00'
   url: https://github.com/RMC-14/RMC-14/pull/9717
+- author: DrSmugleaf
+  changes:
+  - message: Added impenetrable xeno resin walls and doors, which can't be damaged
+      before 20 minutes into the round, being the equivalent of LZ turrets for marines.
+      Impenetrable resin doors block survivors and marines even while open, and will
+      only let them through if they are stunned or devoured. These will line the inner
+      part of hives on each planet.
+    type: Add
+  id: 3164
+  time: '2026-04-24T03:57:48.075386+00:00'
+  url: null
 Name: RMC14
 Order: -1
