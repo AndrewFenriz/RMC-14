@@ -67,7 +67,7 @@
         density: 100
         mask:
         - Marine
-  - type: PreventStunnedCollision
+  - type: XenoStunnedPreventCollision
 
 - type: entity
   parent: WallXenoResin

@@ -10,6 +10,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
 using Content.Shared.Stunnable;
@@ -38,6 +39,7 @@ public abstract class SharedXenoHiveSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
@@ -66,7 +68,7 @@ public abstract class SharedXenoHiveSystem : EntitySystem
 
         SubscribeLocalEvent<HiveGunComponent, AmmoShotEvent>(OnHiveGunShot);
 
-        SubscribeLocalEvent<PreventStunnedCollisionComponent, PreventCollideEvent>(OnStunnedPreventCollide);
+        SubscribeLocalEvent<XenoStunnedPreventCollisionComponent, PreventCollideEvent>(OnStunnedPreventCollide);
     }
 
     private void OnDropshipHijackStart(ref DropshipHijackStartEvent ev)
@@ -97,7 +99,7 @@ public abstract class SharedXenoHiveSystem : EntitySystem
 
         foreach (var contacting in _contacting)
         {
-            if (!HasComp<PreventStunnedCollisionComponent>(contacting))
+            if (!HasComp<XenoStunnedPreventCollisionComponent>(contacting))
                 continue;
 
             _broadphase.RegenerateContacts(marine.Owner);
@@ -450,13 +452,25 @@ public abstract class SharedXenoHiveSystem : EntitySystem
         }
     }
 
-    private void OnStunnedPreventCollide(Entity<PreventStunnedCollisionComponent> ent, ref PreventCollideEvent args)
+    private void OnStunnedPreventCollide(Entity<XenoStunnedPreventCollisionComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (HasComp<StunnedComponent>(args.OtherEntity))
-            args.Cancelled = true;
+        if (!HasComp<StunnedComponent>(args.OtherEntity) &&
+            !HasComp<KnockedDownComponent>(args.OtherEntity))
+        {
+            return;
+        }
+
+        // This will make it so explosions and warrior punches do not throw someone through the door, for example
+        if (_pulling.GetPuller(args.OtherEntity) is not { } puller ||
+            !HasComp<XenoComponent>(puller))
+        {
+            return;
+        }
+
+        args.Cancelled = true;
     }
 
     public bool FromSameHiveOrAlly(Entity<HiveMemberComponent?> a, Entity<HiveMemberComponent?> b)
