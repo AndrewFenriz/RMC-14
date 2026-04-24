@@ -1,0 +1,4 @@
+﻿author: DrSmugleaf
+changes:
+- type: Add
+  message: Added impenetrable xeno resin walls and doors, which can't be damaged before 20 minutes into the round, being the equivalent of LZ turrets for marines. Impenetrable resin doors block survivors and marines even while open, and will only let them through if they are stunned or devoured. These will line the inner part of hives on each planet.
