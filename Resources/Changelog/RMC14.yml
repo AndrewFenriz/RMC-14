@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: wheelwrightt
-  changes:
-  - message: Tacmap zooms on cursor rather than the center of the map.
-    type: Fix
-  - message: Tacmap freehand lines no longer creates a line back to where it began.
-    type: Fix
-  id: 2665
-  time: '2025-12-10T01:31:55.0000000+00:00'
-  url: https://github.com/RMC-14/RMC-14/pull/8645
 - author: SurfinNinja1
   changes:
   - message: added 3 more sandwiches
@@ -4463,5 +4454,15 @@
   id: 3164
   time: '2026-04-24T03:57:48.075386+00:00'
   url: null
+- author: IceNoobXD
+  changes:
+  - message: Lazarus Landing has recived a passover which adds a lot of minor props
+      and a gas pipe layout for nexus!
+    type: Tweak
+  - message: Lazarus Landing lake house loot has been removed.
+    type: Remove
+  id: 3165
+  time: '2026-04-24T10:15:36.0000000+00:00'
+  url: https://github.com/RMC-14/RMC-14/pull/9686
 Name: RMC14
 Order: -1
