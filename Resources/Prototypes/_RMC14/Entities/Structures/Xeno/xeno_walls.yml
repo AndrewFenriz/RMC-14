@@ -55,6 +55,8 @@
 - type: entity
   id: RMCBlockerMarine
   name: marine blocker
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
   components:
   - type: Physics
     bodyType: Static
