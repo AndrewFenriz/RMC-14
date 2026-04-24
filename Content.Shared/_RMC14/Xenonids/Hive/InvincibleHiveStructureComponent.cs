@@ -23,5 +23,5 @@ public sealed partial class InvincibleHiveStructureComponent : Component
     public TimeSpan ReplaceAt;
 
     [DataField, AutoNetworkedField]
-    public Color Color = Color.FromHex("#9D00B9");
+    public Color Color = Color.FromHex("#D800FF");
 }

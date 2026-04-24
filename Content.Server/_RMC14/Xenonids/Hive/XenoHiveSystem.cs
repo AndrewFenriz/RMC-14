@@ -22,6 +22,7 @@ using System.Data;
 using Content.Server.Destructible;
 using Content.Shared._RMC14.Explosion;
 using Content.Shared._RMC14.Sprite;
+using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Robust.Shared.Serialization.Manager;
@@ -125,6 +126,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
         EntityManager.RemoveComponent<DamageableComponent>(ent);
         EntityManager.RemoveComponent<DestructibleComponent>(ent);
         EntityManager.RemoveComponent<RMCWallExplosionDeletableComponent>(ent);
+        EntityManager.RemoveComponent<XenoConstructionRequiresSupportComponent>(ent);
 
         if (ent.Comp.BlockerId != null)
             ent.Comp.Blocker = Spawn(ent.Comp.BlockerId, ent.Owner.ToCoordinates());
@@ -301,6 +303,9 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
 
                 if (replace.TryGetComponent(out RMCWallExplosionDeletableComponent? wallDeletable, _compFactory))
                     AddComp(ent, _serialization.CreateCopy(wallDeletable, notNullableOverride: true), true);
+
+                if (replace.TryGetComponent(out XenoConstructionRequiresSupportComponent? requiresSupport, _compFactory))
+                    AddComp(ent, _serialization.CreateCopy(requiresSupport, notNullableOverride: true), true);
             }
         }
         catch (Exception e)
