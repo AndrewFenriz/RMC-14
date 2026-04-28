@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Aurallianz
-  changes:
-  - message: Fixed nuke also killing everyone not on the planet.
-    type: Fix
-  id: 2668
-  time: '2025-12-10T01:44:17.894979+00:00'
-  url: null
 - author: DrSmugleaf
   changes:
   - message: Fixed being able to duplicate breaching shells by transferring between
@@ -4464,5 +4457,13 @@
   id: 3167
   time: '2026-04-27T00:31:53.0000000+00:00'
   url: https://github.com/RMC-14/RMC-14/pull/9703
+- author: TadJohnson00
+  changes:
+  - message: The Warwick MkVII revolver now has the correct tags and should fit in
+      appropriate webbings, belts, etc.
+    type: Fix
+  id: 3168
+  time: '2026-04-28T01:39:13.0000000+00:00'
+  url: https://github.com/RMC-14/RMC-14/pull/9739
 Name: RMC14
 Order: -1
