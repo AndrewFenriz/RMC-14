@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: J C Denton
-  changes:
-  - message: Fixed Paranoid Corporate Liaison survivor on LV-624 having incorrect
-      rank.
-    type: Fix
-  id: 2673
-  time: '2025-12-14T22:13:08.0000000+00:00'
-  url: https://github.com/RMC-14/RMC-14/pull/8724
-- author: Arykh
-  changes:
-  - message: Fixed Nutritious Property restoring less nutrition than intended.
-    type: Fix
-  id: 2674
-  time: '2025-12-14T22:19:55.0000000+00:00'
-  url: https://github.com/RMC-14/RMC-14/pull/8660
 - author: Vermidia
   changes:
   - message: Added linkladders command, which links 2 ladders together.
@@ -4480,5 +4465,21 @@
   id: 3172
   time: '2026-04-30T21:33:11.0000000+00:00'
   url: https://github.com/RMC-14/RMC-14/pull/9753
+- author: SharkSnake98
+  changes:
+  - message: Changed the PK-7 sprites to be more unique and interesting
+    type: Tweak
+  - message: Fixed the PK7 having stereo audio
+    type: Fix
+  id: 3173
+  time: '2026-05-01T00:19:39.0000000+00:00'
+  url: https://github.com/RMC-14/RMC-14/pull/9705
+- author: Dygon
+  changes:
+  - message: The King's Bulwark Of The Hive ability creates lightning again.
+    type: Fix
+  id: 3174
+  time: '2026-05-01T00:18:49.0000000+00:00'
+  url: https://github.com/RMC-14/RMC-14/pull/9715
 Name: RMC14
 Order: -1
